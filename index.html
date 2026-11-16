@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Азат Ибрагимов — Системный администратор / Junior DevOps</title>
+    
+    <!-- Google Fonts: Inter & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Favicon / Head meta -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+</head>
+<body>
+
+    <!-- TERMINAL PRELOADER -->
+    <div id="preloader" class="preloader">
+        <div class="preloader-content">
+            <div class="preloader-logo">
+                <span class="logo-bracket">[</span> AZAT_IBRAGIMOV // OS & DEVOPS <span class="logo-bracket">]</span>
+            </div>
+            <div class="terminal-loader-box">
+                <div id="terminal-lines" class="terminal-lines">
+                    <p class="t-line">init_kernel --version 6.5.0-generic...</p>
+                    <p class="t-line">loading_modules [docker, swarm, prometheus, loki]...</p>
+                    <p class="t-line">mounting_cmdb_database --secure...</p>
+                </div>
+                <div class="progress-bar-container">
+                    <div id="loader-progress" class="progress-bar"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CANVAS BACKGROUND (Interactive Neural/Network Grid) -->
+    <canvas id="hero-canvas" class="hero-canvas"></canvas>
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="header" id="header">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">
+                <span class="accent">AI</span>//sysadmin.devops
+            </a>
+            <nav class="nav-links">
+                <a href="#metrics" class="nav-link">Метрики</a>
+                <a href="#projects" class="nav-link">Проекты</a>
+                <a href="#stack" class="nav-link">Стек</a>
+                <a href="#synergy" class="nav-link">Синергия</a>
+                <a href="#contacts" class="nav-link">Контакты</a>
+            </nav>
+            <div class="nav-actions">
+                <a href="https://t.me/flagminn" target="_blank" class="btn-magnetic btn-primary-sm">
+                    <span>Telegram</span>
+                </a>
+                <button class="menu-toggle" id="menuToggle" aria-label="Меню">
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MOBILE MENU OVERLAY -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-links">
+            <a href="#metrics" class="mob-link">Метрики</a>
+            <a href="#projects" class="mob-link">Проекты</a>
+            <a href="#stack" class="mob-link">Стек</a>
+            <a href="#synergy" class="mob-link">Синергия</a>
+            <a href="#contacts" class="mob-link">Контакты</a>
+            <a href="https://t.me/flagminn" target="_blank" class="mob-link accent-link">Связаться в Telegram &rarr;</a>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT WRAPPER (LENIS) -->
+    <div id="smooth-wrapper">
+        <div id="smooth-content">
+
+            <!-- 1. HERO SECTION -->
+            <section class="hero-section" id="hero">
+                <div class="container hero-grid">
+                    <div class="hero-content" data-speed="1.05">
+                        <div class="hero-badge">
+                            <span class="status-dot"></span>
+                            <span>Системный администратор / Junior DevOps / L2 Support</span>
+                        </div>
+                        <h1 class="hero-title">
+                            Автоматизирую инфраструктуру.<br>
+                            <span class="gradient-text">Управляю рисками.</span>
+                        </h1>
+                        <p class="hero-subtitle">
+                            Синергия реального производственного опыта (L1–L2) и глубокой архитектурной школы «Школы 21». Удерживаю 100% стабильность сервисов с холодной юридической выдержкой.
+                        </p>
+                        
+                        <div class="terminal-box">
+                            <div class="terminal-header">
+                                <span class="dot red"></span>
+                                <span class="dot yellow"></span>
+                                <span class="dot green"></span>
+                                <span class="term-title">azat@server-01:~#</span>
+                            </div>
+                            <div class="terminal-body">
+                                <span class="prompt-sign">&gt;</span> <span id="typewriter-text"></span><span class="cursor-blink">_</span>
+                            </div>
+                        </div>
+
+                        <div class="hero-actions">
+                            <a href="https://t.me/flagminn" target="_blank" class="btn-magnetic btn-primary">
+                                <span class="btn-text">Связаться в Telegram</span>
+                                <span class="btn-icon">&rarr;</span>
+                            </a>
+                            <a href="resume.pdf" download class="btn-magnetic btn-secondary">
+                                <span class="btn-text">Скачать резюме</span>
+                                <span class="btn-icon">&#128196;</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="hero-visual" data-speed="0.95">
+                        <div class="avatar-card tilt-card" data-tilt>
+                            <div class="avatar-glow"></div>
+                            <div class="avatar-image-wrapper">
+                                <img src="photo.jpg" alt="Азат Ибрагимов" class="avatar-img">
+                                <div class="avatar-badge-float">
+                                    <span class="icon">&#9881;</span>
+                                    <span>Uptime: 99.99%</span>
+                                </div>
+                            </div>
+                            <div class="avatar-meta">
+                                <div class="meta-item">
+                                    <span class="label">ЛОКАЦИЯ</span>
+                                    <span class="val">Россия / Удаленно</span>
+                                </div>
+                                <div class="meta-item">
+                                    <span class="label">СТАТУС</span>
+                                    <span class="val success">OPEN TO WORK</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- INFINITE MARQUEE 1 -->
+            <div class="marquee-container">
+                <div class="marquee-track">
+                    <div class="marquee-content">
+                        <span>LINUX / UBUNTU</span> <span class="separator">•</span>
+                        <span>DOCKER & DOCKER SWARM</span> <span class="separator">•</span>
+                        <span>GITLAB CI/CD</span> <span class="separator">•</span>
+                        <span>PROMETHEUS & GRAFANA</span> <span class="separator">•</span>
+                        <span>PYTHON & BASH</span> <span class="separator">•</span>
+                        <span>POSTGRESQL & SQL</span> <span class="separator">•</span>
+                        <span>NGINX & NETWORKING</span> <span class="separator">•</span>
+                        <span>TCP/IP & DNS</span> <span class="separator">•</span>
+                        <span>ACTIVE DIRECTORY</span> <span class="separator">•</span>
+                    </div>
+                    <div class="marquee-content" aria-hidden="true">
+                        <span>LINUX / UBUNTU</span> <span class="separator">•</span>
+                        <span>DOCKER & DOCKER SWARM</span> <span class="separator">•</span>
+                        <span>GITLAB CI/CD</span> <span class="separator">•</span>
+                        <span>PROMETHEUS & GRAFANA</span> <span class="separator">•</span>
+                        <span>PYTHON & BASH</span> <span class="separator">•</span>
+                        <span>POSTGRESQL & SQL</span> <span class="separator">•</span>
+                        <span>NGINX & NETWORKING</span> <span class="separator">•</span>
+                        <span>TCP/IP & DNS</span> <span class="separator">•</span>
+                        <span>ACTIVE DIRECTORY</span> <span class="separator">•</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. METRICS BAR (Опыт в цифрах) -->
+            <section class="metrics-section" id="metrics">
+                <div class="container morph-container">
+                    <div class="section-header center">
+                        <span class="section-tag">/ ИНЖЕНЕРНЫЕ МЕТРИКИ</span>
+                        <h2>Опыт в цифрах и фактах</h2>
+                        <p>Измеримые результаты производственной практики и архитектурных проектов</p>
+                    </div>
+
+                    <div class="metrics-grid">
+                        <div class="metric-card tilt-card" data-tilt>
+                            <div class="metric-num" data-count="4">4<span class="plus">+</span></div>
+                            <div class="metric-label">Года общего стажа</div>
+                            <div class="metric-desc">Производство, ИТ-отдел и масштабные проекты «Школы 21»</div>
+                        </div>
+                        <div class="metric-card tilt-card" data-tilt>
+                            <div class="metric-num" data-count="50">50<span class="plus">+</span></div>
+                            <div class="metric-label">ПК под управлением</div>
+                            <div class="metric-desc">Полный парк техники, учет в CMDB и регламенты обслуживания</div>
+                        </div>
+                        <div class="metric-card tilt-card" data-tilt>
+                            <div class="metric-num">70-80<span class="plus">%</span></div>
+                            <div class="metric-label">Сокращение downtime</div>
+                            <div class="metric-desc">Автоматизация миграции серверного оборудования и сетевых нод</div>
+                        </div>
+                        <div class="metric-card tilt-card" data-tilt>
+                            <div class="metric-num">100<span class="plus">%</span></div>
+                            <div class="metric-label">Уровень NPS в поддержке</div>
+                            <div class="metric-desc">Высокая эмпатия, четкие SLA и оперативное решение инцидентов L1-L2</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- INFINITE MARQUEE 2 (Reversed) -->
+            <div class="marquee-container marquee-reverse">
+                <div class="marquee-track">
+                    <div class="marquee-content">
+                        <span>NPS 100% В ПОДДЕРЖКЕ</span> <span class="separator">•</span>
+                        <span>СЭКОНОМИЛ 230К+ РУБ. НА РЕМОНТЕ ЖЕЛЕЗА</span> <span class="separator">•</span>
+                        <span>СОКРАТИЛ ПРОСТОЙ МИГРАЦИИ НА 70–80%</span> <span class="separator">•</span>
+                        <span>ОБРАЗОВАТЕЛЬНАЯ ШКОЛА 21</span> <span class="separator">•</span>
+                        <span>ЮРИДИЧЕСКАЯ СИСТЕМНОСТЬ И СТРЕССОУСТОЙЧИВОСТЬ</span> <span class="separator">•</span>
+                    </div>
+                    <div class="marquee-content" aria-hidden="true">
+                        <span>NPS 100% В ПОДДЕРЖКЕ</span> <span class="separator">•</span>
+                        <span>СЭКОНОМИЛ 230К+ РУБ. НА РЕМОНТЕ ЖЕЛЕЗА</span> <span class="separator">•</span>
+                        <span>СОКРАТИЛ ПРОСТОЙ МИГРАЦИИ НА 70–80%</span> <span class="separator">•</span>
+                        <span>ОБРАЗОВАТЕЛЬНАЯ ШКОЛА 21</span> <span class="separator">•</span>
+                        <span>ЮРИДИЧЕСКАЯ СИСТЕМНОСТЬ И СТРЕССОУСТОЙЧИВОСТЬ</span> <span class="separator">•</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. PROJECTS SECTION (Инженерные кейсы с модалками) -->
+            <section class="projects-section" id="projects">
+                <div class="container">
+                    <div class="section-header">
+                        <span class="section-tag">/ PORTFOLIO & ARCHITECTURE</span>
+                        <h2>Инженерные кейсы и проекты</h2>
+                        <p>Ключевые инфраструктурные внедрения, системы мониторинга и автоматизации</p>
+                    </div>
+
+                    <div class="bento-projects-grid">
+                        
+                        <!-- Project 1: Observability Stack -->
+                        <div class="bento-card project-card tilt-card" data-tilt data-project-id="1">
+                            <div class="card-glow"></div>
+                            <div class="project-top">
+                                <span class="project-badge">Школа 21 / DevOps</span>
+                                <span class="project-id">#01</span>
+                            </div>
+                            <h3>«Умный город» — Observability Stack</h3>
+                            <p class="project-desc">
+                                Проектирование и внедрение отказоустойчивой системы комплексного мониторинга, сбора системных метрик, логирования и алертинга.
+                            </p>
+                            <div class="tech-tags">
+                                <span>Docker Swarm</span>
+                                <span>Prometheus</span>
+                                <span>Grafana</span>
+                                <span>Loki</span>
+                                <span>Alertmanager</span>
+                            </div>
+                            <div class="project-footer">
+                                <button class="btn-details open-modal" data-target="modal-1">
+                                    <span>Архитектура и разбор</span>
+                                    <span>&rarr;</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Project 2: CI/CD Pipeline -->
+                        <div class="bento-card project-card tilt-card" data-tilt data-project-id="2">
+                            <div class="card-glow"></div>
+                            <div class="project-top">
+                                <span class="project-badge">Школа 21 / CI-CD</span>
+                                <span class="project-id">#02</span>
+                            </div>
+                            <h3>Автоматизация CI/CD пайплайнов</h3>
+                            <p class="project-desc">
+                                Создание автоматизированного конвейера непрерывной интеграции и развертывания для проверки кода, статического анализа и безопасного деплоя.
+                            </p>
+                            <div class="tech-tags">
+                                <span>GitLab CI/CD</span>
+                                <span>Make</span>
+                                <span>Clang-Format</span>
+                                <span>Bash / SCP</span>
+                                <span>Telegram Bot</span>
+                            </div>
+                            <div class="project-footer">
+                                <button class="btn-details open-modal" data-target="modal-2">
+                                    <span>Архитектура и разбор</span>
+                                    <span>&rarr;</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Project 3: Enterprise Infra -->
+                        <div class="bento-card project-card tilt-card wide-card" data-tilt data-project-id="3">
+                            <div class="card-glow"></div>
+                            <div class="project-top">
+                                <span class="project-badge">ООО "Амнис-Групп" / Production</span>
+                                <span class="project-id">#03</span>
+                            </div>
+                            <h3>Производственная инфраструктура и сетевая безопасность</h3>
+                            <p class="project-desc">
+                                Комплексная поддержка, администрирование и обеспечение бесперебойной работы серверной и сетевой инфраструктуры (L1–L2) на производственном предприятии.
+                            </p>
+                            <div class="tech-tags">
+                                <span>Linux Servers</span>
+                                <span>Active Directory</span>
+                                <span>VPN / Nginx</span>
+                                <span>CMDB</span>
+                                <span>Bash Automation</span>
+                            </div>
+                            <div class="project-footer">
+                                <button class="btn-details open-modal" data-target="modal-3">
+                                    <span>Архитектура и разбор</span>
+                                    <span>&rarr;</span>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. TECH STACK (Interactive Bento) -->
+            <section class="stack-section" id="stack">
+                <div class="container">
+                    <div class="section-header center">
+                        <span class="section-tag">/ TECHNICAL EXPERTISE</span>
+                        <h2>Технологический стек</h2>
+                        <p>Инструменты, операционные системы и протоколы, с которыми я работаю ежедневно</p>
+                    </div>
+
+                    <div class="bento-stack-grid">
+                        <div class="stack-card tilt-card" data-tilt>
+                            <div class="stack-icon">&#128187;</div>
+                            <h4>OS & Networking</h4>
+                            <p>Linux (Ubuntu), Bash, SSH, TCP/IP, DNS, NTP, Nginx, Netplan, iptables</p>
+                            <div class="stack-level">Advanced</div>
+                        </div>
+                        <div class="stack-card tilt-card" data-tilt>
+                            <div class="stack-icon">&#9881;</div>
+                            <h4>DevOps & CI/CD</h4>
+                            <p>Docker, Docker Compose, Docker Swarm, GitLab CI/CD, Git, Make</p>
+                            <div class="stack-level">Production Ready</div>
+                        </div>
+                        <div class="stack-card tilt-card" data-tilt>
+                            <div class="stack-icon">&#128202;</div>
+                            <h4>Monitoring & DB</h4>
+                            <p>Prometheus, Grafana, Loki, Alertmanager, PostgreSQL, SQL</p>
+                            <div class="stack-level">Observability Stack</div>
+                        </div>
+                        <div class="stack-card tilt-card" data-tilt>
+                            <div class="stack-icon">&#128104;&#8205;&#128187;</div>
+                            <h4>Tools & Enterprise</h4>
+                            <p>Python, Vim, Nano, Active Directory, Windows Server / Workstations, CMDB</p>
+                            <div class="stack-level">L1 - L2 Support</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5. SYNERGY SECTION (Legal-Tech Advantage) -->
+            <section class="synergy-section" id="synergy">
+                <div class="container morph-container">
+                    <div class="synergy-wrapper">
+                        <div class="synergy-left">
+                            <span class="section-tag">/ UNIQUE ADVANTAGE</span>
+                            <h2>От защиты интересов в суде — к защите стабильности ИТ-инфраструктуры.</h2>
+                            <p class="synergy-lead">
+                                Мой юридический бэкграунд (включая победы в спорах на 1,4+ млрд рублей и жесткую практику в нефтегазовом инжиниринге) сформировал уникальные качества для современного инженера:
+                            </p>
+                        </div>
+                        <div class="synergy-right">
+                            <div class="synergy-point tilt-card" data-tilt>
+                                <div class="point-num">01</div>
+                                <div class="point-content">
+                                    <h4>Абсолютная стрессоустойчивость</h4>
+                                    <p>Умение принимать взвешенные и хладнокровные решения в кризисных инцидентах, когда каждый час простоя стоит бизнеса.</p>
+                                </div>
+                            </div>
+                            <div class="synergy-point tilt-card" data-tilt>
+                                <div class="point-num">02</div>
+                                <div class="point-content">
+                                    <h4>Системность и регламенты</h4>
+                                    <p>Безукоризненное следование инструкциям, ведение строгой технической документации и выстраивание прозрачных процессов (CMDB, бэкапы).</p>
+                                </div>
+                            </div>
+                            <div class="synergy-point tilt-card" data-tilt>
+                                <div class="point-num">03</div>
+                                <div class="point-content">
+                                    <h4>Дипломатия и эмпатия</h4>
+                                    <p>Способность спокойно и понятно объяснять сложные технические аспекты сотрудникам, обеспечивая 100% уровень удовлетворенности (NPS).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 6. CONTACTS & FOOTER -->
+            <footer class="footer-section" id="contacts">
+                <div class="container footer-container">
+                    <div class="footer-cta-card tilt-card" data-tilt>
+                        <div class="cta-glow"></div>
+                        <span class="section-tag">/ GET IN TOUCH</span>
+                        <h2>Готов усилить вашу команду</h2>
+                        <p>Открыт к позициям Системного администратора, Junior DevOps или специалиста технической поддержки L2.</p>
+                        
+                        <div class="footer-actions">
+                            <a href="https://t.me/flagminn" target="_blank" class="btn-magnetic btn-primary lg">
+                                <span>Связаться в Telegram (@flagminn)</span>
+                                <span>&rarr;</span>
+                            </a>
+                            <a href="mailto:aazat.ibragimov@gmail.com" class="btn-magnetic btn-secondary lg">
+                                <span>aazat.ibragimov@gmail.com</span>
+                            </a>
+                        </div>
+
+                        <div class="social-links-bar">
+                            <a href="https://t.me/flagminn" target="_blank" class="social-item">Telegram</a>
+                            <a href="https://github.com/flagminn" target="_blank" class="social-item">GitHub</a>
+                            <a href="https://set.ki/account/Nj8TabH" target="_blank" class="social-item">Setka</a>
+                            <a href="resume.pdf" download class="social-item">Резюме (PDF)</a>
+                        </div>
+                    </div>
+
+                    <div class="footer-bottom">
+                        <div class="footer-copy">
+                            &copy; 2026 Азат Ибрагимов. All rights reserved. Built with Motion-First standards.
+                        </div>
+                        <div class="footer-status">
+                            <span class="status-dot green"></span>
+                            <span>All Systems Operational</span>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+    </div>
+
+    <!-- MODAL OVERLAYS FOR PROJECTS -->
+    <div class="modal-backdrop" id="modalBackdrop">
+        
+        <!-- Modal 1 -->
+        <div class="project-modal" id="modal-1">
+            <button class="modal-close" data-close>&times;</button>
+            <div class="modal-header">
+                <span class="badge">Школа 21 // Проект 01</span>
+                <h2>«Умный город» — Observability Stack</h2>
+            </div>
+            <div class="modal-tabs">
+                <button class="tab-btn active" data-tab="arch">Архитектура</button>
+                <button class="tab-btn" data-tab="config">Конфиги / Стек</button>
+                <button class="tab-btn" data-tab="result">Результат</button>
+            </div>
+            <div class="modal-tab-content active" data-tab-content="arch">
+                <h4>Архитектура и реализация:</h4>
+                <ul>
+                    <li>Развертывание многоконтейнерной инфраструктуры в кластере <strong>Docker Swarm</strong> с изолированными сетями и персистентными томами.</li>
+                    <li>Настройка <strong>Prometheus</strong> для сбора метрик, <strong>Grafana</strong> для визуализации дашбордов, <strong>Grafana Loki</strong> для агрегации логов.</li>
+                    <li>Динамическое Service Discovery через <code>dns_sd_configs</code> для автоматического сбора метрик с Node Exporter, cAdvisor и Blackbox Exporter.</li>
+                </ul>
+            </div>
+            <div class="modal-tab-content" data-tab-content="config">
+                <h4>Сниппеты и алертинг:</h4>
+                <pre><code>groups:
+  - name: node_alerts
+    rules:
+      - alert: HighCPUUsage
+        expr: 100 - (avg by(instance) (rate(node_cpu_seconds_total{mode="idle"}[5m])) * 100) > 85
+        for: 2m
+        labels:
+          severity: critical
+        annotations:
+          summary: "High CPU usage detected on {{ $labels.instance }}"</code></pre>
+            </div>
+            <div class="modal-tab-content" data-tab-content="result">
+                <h4>Итоговый результат:</h4>
+                <p>Развернута централизованная система мониторинга с интерактивными дашбордами в Grafana и мгновенной доставкой критических инцидентов через Prometheus Alertmanager и Telegram Bot API. Работоспособность подтверждена стресс-тестированием.</p>
+            </div>
+        </div>
+
+        <!-- Modal 2 -->
+        <div class="project-modal" id="modal-2">
+            <button class="modal-close" data-close>&times;</button>
+            <div class="modal-header">
+                <span class="badge">Школа 21 // Проект 02</span>
+                <h2>Автоматизация CI/CD пайплайнов</h2>
+            </div>
+            <div class="modal-tabs">
+                <button class="tab-btn active" data-tab="arch">Архитектура</button>
+                <button class="tab-btn" data-tab="config">Конфиги / Стек</button>
+                <button class="tab-btn" data-tab="result">Результат</button>
+            </div>
+            <div class="modal-tab-content active" data-tab-content="arch">
+                <h4>Архитектура конвейера:</h4>
+                <ul>
+                    <li>Проектирование многостадийного конвейера в <strong>GitLab CI/CD</strong> (Build, Test, Deploy).</li>
+                    <li>Интеграция автоматической компиляции проектов на C с помощью <code>Make</code> и статического анализатора <code>clang-format</code> с флагом <code>--Werror</code>.</li>
+                    <li>Автоматический прогон юнит-тестов и безопасный деплой по SSH/SCP на целевой сервер.</li>
+                </ul>
+            </div>
+            <div class="modal-tab-content" data-tab-content="config">
+                <h4>gitlab-ci.yml:</h4>
+                <pre><code>stages:
+  - build
+  - test
+  - deploy
+
+build_job:
+  stage: build
+  script:
+    - make clean && make
+  artifacts:
+    paths:
+      - ./bin/
+
+test_job:
+  stage: test
+  script:
+    - make test</code></pre>
+            </div>
+            <div class="modal-tab-content" data-tab-content="result">
+                <h4>Итоговый результат:</h4>
+                <p>Внедрен полноценный CI/CD конвейер со строгим контролем стиля кода, автоматической сборкой и мгновенными уведомлениями в Telegram о статусах деплоя.</p>
+            </div>
+        </div>
+
+        <!-- Modal 3 -->
+        <div class="project-modal" id="modal-3">
+            <button class="modal-close" data-close>&times;</button>
+            <div class="modal-header">
+                <span class="badge">ООО "Амнис-Групп" // Production</span>
+                <h2>Производственная инфраструктура и сетевая безопасность</h2>
+            </div>
+            <div class="modal-tabs">
+                <button class="tab-btn active" data-tab="arch">Архитектура</button>
+                <button class="tab-btn" data-tab="config">Конфиги / Стек</button>
+                <button class="tab-btn" data-tab="result">Результат</button>
+            </div>
+            <div class="modal-tab-content active" data-tab-content="arch">
+                <h4>Зона ответственности и задачи:</h4>
+                <ul>
+                    <li>Администрирование серверов, настройка регулярного резервного копирования критических баз данных и Active Directory.</li>
+                    <li>Поддержка локальной сети (LAN, Wi-Fi), настройка безопасных VPN-туннелей для удаленных сотрудников.</li>
+                    <li>Разработка Bash-скриптов для автоматической перенастройки сетевых параметров при миграции на новые серверные мощности.</li>
+                </ul>
+            </div>
+            <div class="modal-tab-content" data-tab-content="config">
+                <h4>Bash Automation Example:</h4>
+                <pre><code>#!/bin/bash
+# Network migration helper script
+BACKUP_DIR="/var/backups/network"
+DATE=$(date +%Y%m%d_%H%M%S)
+
+mkdir -p $BACKUP_DIR
+cp /etc/netplan/*.yaml $BACKUP_DIR/netplan_$DATE.bak
+echo "[INFO] Network configs backed up successfully at $DATE"</code></pre>
+            </div>
+            <div class="modal-tab-content" data-tab-content="result">
+                <h4>Итоговый результат:</h4>
+                <p>Сокращение простоя при миграции на 70–80%, ускорение диагностики аппаратных сбоев на 40%, экономия более 230 000 рублей за счет модульного ремонта оборудования своими силами, NPS 100%.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- CDN SCRIPTS: GSAP, ScrollTrigger, TextPlugin, Lenis, VanillaTilt -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+
+    <!-- Main JS -->
+    <script src="script.js"></script>
+</body>
+</html>
