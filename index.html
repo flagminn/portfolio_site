@@ -3,577 +3,305 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Азат Ибрагимов — Системный администратор / Junior DevOps</title>
-    
-    <!-- Google Fonts: Inter & JetBrains Mono -->
+    <meta name="description" content="Азат Ибрагимов — системный администратор и Junior+ DevOps. Linux, Docker, GitLab CI/CD, мониторинг и автоматизация. Опыт поддержки производственной инфраструктуры.">
+    <meta name="theme-color" content="#090e13">
+    <title>Азат Ибрагимов — Системный администратор / Junior+ DevOps</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-    
-    <!-- Stylesheet -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    
-    <!-- Favicon / Head meta -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23090e13'/%3E%3Ctext x='32' y='41' text-anchor='middle' font-family='monospace' font-size='28' font-weight='700' fill='%2367e8f9'%3EAI%3C/text%3E%3C/svg%3E">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Азат Ибрагимов",
+        "jobTitle": "Системный администратор / Junior+ DevOps",
+        "email": "mailto:aazat.ibragimov@gmail.com",
+        "telephone": "+7 (996) 102-03-31",
+        "address": {"@type": "PostalAddress", "addressLocality": "Уфа", "addressCountry": "RU"},
+        "sameAs": ["https://github.com/flagminn", "https://t.me/flagminn", "https://set.ki/account/Nj8TabH"],
+        "knowsAbout": ["Linux", "Docker", "GitLab CI/CD", "Prometheus", "Grafana", "Bash", "Python", "PostgreSQL"]
+    }
+    </script>
 </head>
 <body>
+    <a class="skip-link" href="#main">Перейти к содержимому</a>
 
-    <!-- TERMINAL PRELOADER -->
-    <div id="preloader" class="preloader">
-        <div class="preloader-content">
-            <div class="preloader-logo">
-                <span class="logo-bracket">[</span> AZAT_IBRAGIMOV // OS & DEVOPS <span class="logo-bracket">]</span>
-            </div>
-            <div class="terminal-loader-box">
-                <div id="terminal-lines" class="terminal-lines">
-                    <p class="t-line">init_kernel --version 6.5.0-generic...</p>
-                    <p class="t-line">loading_modules [docker, swarm, prometheus, loki]...</p>
-                    <p class="t-line">mounting_cmdb_database --secure...</p>
-                </div>
-                <div class="progress-bar-container">
-                    <div id="loader-progress" class="progress-bar"></div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <svg class="svg-sprite" aria-hidden="true">
+        <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+        <symbol id="icon-download" viewBox="0 0 24 24"><path d="M12 3v12m0 0 5-5m-5 5-5-5M5 20h14"/></symbol>
+        <symbol id="icon-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></symbol>
+        <symbol id="icon-send" viewBox="0 0 24 24"><path d="m21 3-8 18-3-8-8-3 19-7Z"/><path d="m10 13 5-5"/></symbol>
+        <symbol id="icon-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+        <symbol id="icon-chevron" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></symbol>
+        <symbol id="icon-external" viewBox="0 0 24 24"><path d="M14 4h6v6m0-6-9 9M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/></symbol>
+    </svg>
 
-    <!-- CANVAS BACKGROUND (Interactive Neural/Network Grid) -->
-    <canvas id="hero-canvas" class="hero-canvas"></canvas>
+    <canvas id="networkCanvas" class="network-canvas" aria-hidden="true"></canvas>
+    <div class="ambient-glow ambient-glow-one" aria-hidden="true"></div>
+    <div class="ambient-glow ambient-glow-two" aria-hidden="true"></div>
+    <div class="nav-curtain" id="navCurtain" aria-hidden="true"><span id="navCurtainLabel"></span></div>
 
-    <!-- HEADER / NAVIGATION -->
-    <header class="header" id="header">
-        <div class="nav-container">
-            <a href="#hero" class="nav-logo">
-                <span class="accent">AI</span>//sysadmin.devops
-            </a>
-            <nav class="nav-links">
-                <a href="#metrics" class="nav-link">Метрики</a>
-                <a href="#projects" class="nav-link">Проекты</a>
-                <a href="#stack" class="nav-link">Стек</a>
-                <a href="#synergy" class="nav-link">Синергия</a>
-                <a href="#contacts" class="nav-link">Контакты</a>
+    <header class="site-header" id="siteHeader">
+        <div class="container nav-container">
+            <a href="#hero" class="nav-logo" aria-label="Азат Ибрагимов — на главную"><span>AI</span>//sysadmin.devops</a>
+            <nav class="desktop-nav" aria-label="Основная навигация">
+                <a href="#experience" class="nav-link" data-section-name="Опыт">Опыт</a>
+                <a href="#skills" class="nav-link" data-section-name="Навыки">Навыки</a>
+                <a href="#projects" class="nav-link" data-section-name="Проекты">Проекты</a>
+                <a href="#faq" class="nav-link" data-section-name="FAQ">FAQ</a>
             </nav>
             <div class="nav-actions">
-                <a href="https://t.me/flagminn" target="_blank" class="btn-magnetic btn-primary-sm">
-                    <span>Telegram</span>
-                </a>
-                <button class="menu-toggle" id="menuToggle" aria-label="Меню">
-                    <span></span>
-                    <span></span>
-                </button>
+                <a href="https://github.com/flagminn/devops-portfolio" target="_blank" rel="noopener noreferrer" class="nav-github">GitHub<svg class="icon"><use href="#icon-external"/></svg></a>
+                <a href="https://t.me/flagminn?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%90%D0%B7%D0%B0%D1%82!%20%D0%A5%D0%BE%D1%82%D0%B5%D0%BB%D0%B8%20%D0%B1%D1%8B%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B2%D0%B0%D0%BA%D0%B0%D0%BD%D1%81%D0%B8%D1%8E." target="_blank" rel="noopener noreferrer" class="button button-small button-primary">Telegram</a>
+                <button class="menu-toggle" id="menuToggle" type="button" aria-label="Открыть меню" aria-controls="mobileMenu" aria-expanded="false"><span></span><span></span></button>
             </div>
         </div>
     </header>
 
-    <!-- MOBILE MENU OVERLAY -->
-    <div class="mobile-menu" id="mobileMenu">
-        <div class="mobile-menu-links">
-            <a href="#metrics" class="mob-link">Метрики</a>
-            <a href="#projects" class="mob-link">Проекты</a>
-            <a href="#stack" class="mob-link">Стек</a>
-            <a href="#synergy" class="mob-link">Синергия</a>
-            <a href="#contacts" class="mob-link">Контакты</a>
-            <a href="https://t.me/flagminn" target="_blank" class="mob-link accent-link">Связаться в Telegram &rarr;</a>
-        </div>
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+        <nav class="mobile-menu-links" aria-label="Мобильная навигация">
+            <span class="mono-label">// НАВИГАЦИЯ</span>
+            <a href="#experience" class="mob-link" data-section-name="Опыт">Опыт</a>
+            <a href="#skills" class="mob-link" data-section-name="Навыки">Навыки</a>
+            <a href="#projects" class="mob-link" data-section-name="Проекты">Проекты</a>
+            <a href="#quiz" class="mob-link" data-section-name="Совместимость">Квиз</a>
+            <a href="#faq" class="mob-link" data-section-name="FAQ">FAQ</a>
+            <a href="#contacts" class="mob-link accent-link" data-section-name="Контакты">Связаться<svg class="icon"><use href="#icon-arrow"/></svg></a>
+        </nav>
     </div>
 
-    <!-- MAIN CONTENT WRAPPER (LENIS) -->
-    <div id="smooth-wrapper">
-        <div id="smooth-content">
+    <aside class="recruiter-tools" id="recruiterTools" aria-label="Инструменты рекрутера">
+        <div class="recruiter-panel" id="recruiterPanel" aria-hidden="true">
+            <div class="recruiter-panel-head">
+                <div><span class="mono-label">RECRUITER_KIT</span><h2>Передать резюме дальше</h2></div>
+                <button class="icon-button" id="recruiterClose" type="button" aria-label="Закрыть панель"><svg class="icon"><use href="#icon-close"/></svg></button>
+            </div>
+            <a href="resume.pdf" download class="recruiter-action"><span class="action-icon"><svg class="icon"><use href="#icon-download"/></svg></span><span><strong>Скачать PDF</strong><small>Классическая версия для ATS</small></span><svg class="icon action-arrow"><use href="#icon-arrow"/></svg></a>
+            <button type="button" class="recruiter-action" id="copySummary"><span class="action-icon"><svg class="icon"><use href="#icon-copy"/></svg></span><span><strong>Скопировать саммари</strong><small>10 строк для тимлида</small></span><svg class="icon action-arrow"><use href="#icon-arrow"/></svg></button>
+            <a href="https://t.me/flagminn?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%90%D0%B7%D0%B0%D1%82!%20%D0%9F%D0%BE%D1%81%D0%BC%D0%BE%D1%82%D1%80%D0%B5%D0%BB%D0%B8%20%D0%B2%D0%B0%D1%88%D0%B5%20%D1%80%D0%B5%D0%B7%D1%8E%D0%BC%D0%B5%20%D0%B8%20%D1%85%D0%BE%D1%82%D0%B5%D0%BB%D0%B8%20%D0%B1%D1%8B%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B2%D0%B0%D0%BA%D0%B0%D0%BD%D1%81%D0%B8%D1%8E." target="_blank" rel="noopener noreferrer" class="recruiter-action"><span class="action-icon"><svg class="icon"><use href="#icon-send"/></svg></span><span><strong>Быстрый контакт</strong><small>Telegram с готовым приветствием</small></span><svg class="icon action-arrow"><use href="#icon-arrow"/></svg></a>
+        </div>
+        <button class="recruiter-toggle" id="recruiterToggle" type="button" aria-controls="recruiterPanel" aria-expanded="false"><span class="status-dot"></span><span>Инструменты рекрутера</span><span class="recruiter-toggle-short">HR tools</span></button>
+    </aside>
 
-            <!-- 1. HERO SECTION -->
-            <section class="hero-section" id="hero">
-                <div class="container hero-grid">
-                    <div class="hero-content" data-speed="1.05">
-                        <div class="hero-badge">
-                            <span class="status-dot"></span>
-                            <span>Системный администратор / Junior DevOps / L2 Support</span>
-                        </div>
-                        <h1 class="hero-title">
-                            Автоматизирую инфраструктуру.<br>
-                            <span class="gradient-text">Управляю рисками.</span>
-                        </h1>
-                        <p class="hero-subtitle">
-                            Синергия реального производственного опыта (L1–L2) и глубокой архитектурной школы «Школы 21». Удерживаю 100% стабильность сервисов с холодной юридической выдержкой.
-                        </p>
-                        
-                        <div class="terminal-box">
-                            <div class="terminal-header">
-                                <span class="dot red"></span>
-                                <span class="dot yellow"></span>
-                                <span class="dot green"></span>
-                                <span class="term-title">azat@server-01:~#</span>
-                            </div>
-                            <div class="terminal-body">
-                                <span class="prompt-sign">&gt;</span> <span id="typewriter-text"></span><span class="cursor-blink">_</span>
-                            </div>
-                        </div>
-
-                        <div class="hero-actions">
-                            <a href="https://t.me/flagminn" target="_blank" class="btn-magnetic btn-primary">
-                                <span class="btn-text">Связаться в Telegram</span>
-                                <span class="btn-icon">&rarr;</span>
-                            </a>
-                            <a href="resume.pdf" download class="btn-magnetic btn-secondary">
-                                <span class="btn-text">Скачать резюме</span>
-                                <span class="btn-icon">&#128196;</span>
-                            </a>
-                        </div>
+    <main id="main">
+        <section class="hero-section" id="hero" aria-labelledby="heroTitle">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge"><span class="status-dot"></span>Открыт к предложениям · Уфа / удаленно</div>
+                    <p class="hero-role">Системный администратор <span>/</span> Junior+ DevOps</p>
+                    <h1 class="hero-title" id="heroTitle"><span class="hero-name">Азат Ибрагимов</span>Инфраструктура должна работать <span class="gradient-text">предсказуемо.</span></h1>
+                    <p class="hero-subtitle">Администрирую Linux-серверы и рабочие места, упаковываю сервисы в Docker и автоматизирую рутину. На производстве отвечаю за L1–L2, в «Школе 21» собираю CI/CD и системы наблюдаемости.</p>
+                    <div class="hero-tags" aria-label="Ключевой стек"><span>Linux</span><span>Docker / Swarm</span><span>GitLab CI/CD</span><span>Prometheus</span><span>Bash / Python</span></div>
+                    <div class="hero-actions">
+                        <a href="https://t.me/flagminn?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%90%D0%B7%D0%B0%D1%82!%20%D0%A5%D0%BE%D1%82%D0%B5%D0%BB%D0%B8%20%D0%B1%D1%8B%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B2%D0%B0%D0%BA%D0%B0%D0%BD%D1%81%D0%B8%D1%8E." target="_blank" rel="noopener noreferrer" class="button button-primary btn-magnetic"><span>Связаться в Telegram</span><svg class="icon"><use href="#icon-arrow"/></svg></a>
+                        <a href="#quiz" class="button button-secondary btn-magnetic"><span>Проверить совместимость</span><span class="button-kbd">4 вопроса</span></a>
                     </div>
-
-                    <div class="hero-visual" data-speed="0.95">
-                        <div class="avatar-card tilt-card" data-tilt>
-                            <div class="avatar-glow"></div>
-                            <div class="avatar-image-wrapper">
-                                <img src="photo.jpg" alt="Азат Ибрагимов" class="avatar-img">
-                                <div class="avatar-badge-float">
-                                    <span class="icon">&#9881;</span>
-                                    <span>Uptime: 99.99%</span>
-                                </div>
-                            </div>
-                            <div class="avatar-meta">
-                                <div class="meta-item">
-                                    <span class="label">ЛОКАЦИЯ</span>
-                                    <span class="val">Россия / Удаленно</span>
-                                </div>
-                                <div class="meta-item">
-                                    <span class="label">СТАТУС</span>
-                                    <span class="val success">OPEN TO WORK</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="inline-terminal" aria-label="Терминал: текущие задачи"><span class="terminal-prompt">azat@infra:~$</span><span id="typewriterText">deploying_resilient_infrastructure...</span><span class="terminal-cursor" aria-hidden="true"></span></div>
                 </div>
-            </section>
 
-            <!-- INFINITE MARQUEE 1 -->
-            <div class="marquee-container">
-                <div class="marquee-track">
-                    <div class="marquee-content">
-                        <span>LINUX / UBUNTU</span> <span class="separator">•</span>
-                        <span>DOCKER & DOCKER SWARM</span> <span class="separator">•</span>
-                        <span>GITLAB CI/CD</span> <span class="separator">•</span>
-                        <span>PROMETHEUS & GRAFANA</span> <span class="separator">•</span>
-                        <span>PYTHON & BASH</span> <span class="separator">•</span>
-                        <span>POSTGRESQL & SQL</span> <span class="separator">•</span>
-                        <span>NGINX & NETWORKING</span> <span class="separator">•</span>
-                        <span>TCP/IP & DNS</span> <span class="separator">•</span>
-                        <span>ACTIVE DIRECTORY</span> <span class="separator">•</span>
+                <div class="hero-visual">
+                    <div class="avatar-card tilt-card" data-tilt>
+                        <div class="avatar-topline"><span>PROFILE.IMG</span><span class="online-label"><i></i> AVAILABLE</span></div>
+                        <div class="avatar-image-wrapper"><img src="photo.jpg" alt="Азат Ибрагимов" class="avatar-img" width="1704" height="2560" fetchpriority="high"><div class="avatar-scanline" aria-hidden="true"></div><div class="avatar-caption"><span>4 года 9 месяцев</span><small>общего профессионального опыта</small></div></div>
+                        <div class="avatar-meta"><div><span class="meta-label">ЛОКАЦИЯ</span><strong>Уфа, Россия</strong></div><div><span class="meta-label">ФОРМАТ</span><strong>Офис · гибрид · remote</strong></div></div>
                     </div>
-                    <div class="marquee-content" aria-hidden="true">
-                        <span>LINUX / UBUNTU</span> <span class="separator">•</span>
-                        <span>DOCKER & DOCKER SWARM</span> <span class="separator">•</span>
-                        <span>GITLAB CI/CD</span> <span class="separator">•</span>
-                        <span>PROMETHEUS & GRAFANA</span> <span class="separator">•</span>
-                        <span>PYTHON & BASH</span> <span class="separator">•</span>
-                        <span>POSTGRESQL & SQL</span> <span class="separator">•</span>
-                        <span>NGINX & NETWORKING</span> <span class="separator">•</span>
-                        <span>TCP/IP & DNS</span> <span class="separator">•</span>
-                        <span>ACTIVE DIRECTORY</span> <span class="separator">•</span>
-                    </div>
+                    <div class="hero-floating-note"><span class="note-marker">//</span><p>Инженерная практика + юридическая системность</p></div>
                 </div>
             </div>
+            <a href="#metrics" class="scroll-cue" aria-label="Перейти к карьерным метрикам"><span>SCROLL TO EXPLORE</span><i></i></a>
+        </section>
 
-            <!-- 2. METRICS BAR (Опыт в цифрах) -->
-            <section class="metrics-section" id="metrics">
-                <div class="container morph-container">
-                    <div class="section-header center">
-                        <span class="section-tag">/ ИНЖЕНЕРНЫЕ МЕТРИКИ</span>
-                        <h2>Опыт в цифрах и фактах</h2>
-                        <p>Измеримые результаты производственной практики и архитектурных проектов</p>
-                    </div>
+        <div class="marquee-container" aria-hidden="true"><div class="marquee-track"><div class="marquee-content"><span>LINUX / UBUNTU</span><i>•</i><span>DOCKER &amp; DOCKER SWARM</span><i>•</i><span>GITLAB CI/CD</span><i>•</i><span>PROMETHEUS &amp; GRAFANA</span><i>•</i><span>PYTHON &amp; BASH</span><i>•</i><span>POSTGRESQL &amp; SQL</span><i>•</i><span>NGINX &amp; NETWORKING</span><i>•</i></div><div class="marquee-content"><span>LINUX / UBUNTU</span><i>•</i><span>DOCKER &amp; DOCKER SWARM</span><i>•</i><span>GITLAB CI/CD</span><i>•</i><span>PROMETHEUS &amp; GRAFANA</span><i>•</i><span>PYTHON &amp; BASH</span><i>•</i><span>POSTGRESQL &amp; SQL</span><i>•</i><span>NGINX &amp; NETWORKING</span><i>•</i></div></div></div>
 
+        <section class="section metrics-section" id="metrics" aria-labelledby="metricsTitle">
+            <div class="container">
+                <div class="section-header section-header-split"><div><span class="section-tag">01 / КАРЬЕРНЫЕ МЕТРИКИ</span><h2 id="metricsTitle">Результаты, которые можно измерить</h2></div><p>Не субъективные проценты владения технологиями, а конкретные результаты производственной практики.</p></div>
+                <div class="dashboard-shell morph-target">
+                    <div class="dashboard-topbar"><div class="dashboard-title"><span class="grafana-mark">G</span><div><strong>career-overview</strong><small>Production / School 21</small></div></div><div class="dashboard-range"><span class="status-dot"></span>Данные из резюме · 13.11.2026</div></div>
                     <div class="metrics-grid">
-                        <div class="metric-card tilt-card" data-tilt>
-                            <div class="metric-num" data-count="4">4<span class="plus">+</span></div>
-                            <div class="metric-label">Года общего стажа</div>
-                            <div class="metric-desc">Производство, ИТ-отдел и масштабные проекты «Школы 21»</div>
-                        </div>
-                        <div class="metric-card tilt-card" data-tilt>
-                            <div class="metric-num" data-count="50">50<span class="plus">+</span></div>
-                            <div class="metric-label">ПК под управлением</div>
-                            <div class="metric-desc">Полный парк техники, учет в CMDB и регламенты обслуживания</div>
-                        </div>
-                        <div class="metric-card tilt-card" data-tilt>
-                            <div class="metric-num">70-80<span class="plus">%</span></div>
-                            <div class="metric-label">Сокращение downtime</div>
-                            <div class="metric-desc">Автоматизация миграции серверного оборудования и сетевых нод</div>
-                        </div>
-                        <div class="metric-card tilt-card" data-tilt>
-                            <div class="metric-num">100<span class="plus">%</span></div>
-                            <div class="metric-label">Уровень NPS в поддержке</div>
-                            <div class="metric-desc">Высокая эмпатия, четкие SLA и оперативное решение инцидентов L1-L2</div>
-                        </div>
+                        <article class="metric-card tilt-card" data-tilt><div class="metric-card-head"><span>INFRA_MIGRATION</span><span class="metric-state">IMPROVED</span></div><div class="metric-value">70–80<span>%</span></div><h3>Меньше простоя при миграции</h3><p>Bash-скрипт автоматической перенастройки сетевых параметров исключил ручные ошибки.</p><svg class="sparkline" viewBox="0 0 260 54" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="chartFill1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#67e8f9" stop-opacity=".28"/><stop offset="1" stop-color="#67e8f9" stop-opacity="0"/></linearGradient></defs><path class="spark-area" d="M0 12 30 18 60 15 90 28 120 24 150 36 180 32 210 44 240 40 260 48V54H0Z" fill="url(#chartFill1)"/><path d="M0 12 30 18 60 15 90 28 120 24 150 36 180 32 210 44 240 40 260 48"/></svg></article>
+                        <article class="metric-card tilt-card" data-tilt><div class="metric-card-head"><span>HARDWARE_BUDGET</span><span class="metric-state amber">SAVED</span></div><div class="metric-value"><span data-count="230">230</span><span>К ₽+</span></div><h3>Экономия на оборудовании</h3><p>Диагностика и модульный ремонт рабочих станций вместо закупки новых ПК.</p><div class="metric-bars" aria-hidden="true"><i style="--bar:34%"></i><i style="--bar:48%"></i><i style="--bar:42%"></i><i style="--bar:65%"></i><i style="--bar:76%"></i><i style="--bar:88%"></i><i style="--bar:96%"></i></div></article>
+                        <article class="metric-card tilt-card" data-tilt><div class="metric-card-head"><span>MANAGED_DEVICES</span><span class="metric-state green">INVENTORIED</span></div><div class="metric-value"><span data-count="50">50</span><span>+</span></div><h3>ПК в единой базе CMDB</h3><p>Конфигурации и пользователи связаны в одном реестре. Диагностика сбоев стала быстрее на 40%.</p><div class="device-grid" aria-hidden="true"></div></article>
+                        <article class="metric-card tilt-card" data-tilt><div class="metric-card-head"><span>USER_SUPPORT</span><span class="metric-state green">NPS</span></div><div class="metric-value"><span data-count="100">100</span><span>%</span></div><h3>Удовлетворенность поддержкой</h3><p>Понятная коммуникация, спокойный разбор нетиповых инцидентов и внимание к пользователю.</p><div class="gauge" aria-hidden="true"><div class="gauge-inner">100<small>NPS</small></div></div></article>
                     </div>
+                    <div class="dashboard-footer"><span><i class="legend-dot cyan"></i>3 инженерных проекта «Школы 21»</span><span><i class="legend-dot emerald"></i>2 выигранных спора по 1,4+ млрд ₽</span><span><i class="legend-dot amber"></i>30 параллельных дел без срыва сроков</span></div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <!-- INFINITE MARQUEE 2 (Reversed) -->
-            <div class="marquee-container marquee-reverse">
-                <div class="marquee-track">
-                    <div class="marquee-content">
-                        <span>NPS 100% В ПОДДЕРЖКЕ</span> <span class="separator">•</span>
-                        <span>СЭКОНОМИЛ 230К+ РУБ. НА РЕМОНТЕ ЖЕЛЕЗА</span> <span class="separator">•</span>
-                        <span>СОКРАТИЛ ПРОСТОЙ МИГРАЦИИ НА 70–80%</span> <span class="separator">•</span>
-                        <span>ОБРАЗОВАТЕЛЬНАЯ ШКОЛА 21</span> <span class="separator">•</span>
-                        <span>ЮРИДИЧЕСКАЯ СИСТЕМНОСТЬ И СТРЕССОУСТОЙЧИВОСТЬ</span> <span class="separator">•</span>
-                    </div>
-                    <div class="marquee-content" aria-hidden="true">
-                        <span>NPS 100% В ПОДДЕРЖКЕ</span> <span class="separator">•</span>
-                        <span>СЭКОНОМИЛ 230К+ РУБ. НА РЕМОНТЕ ЖЕЛЕЗА</span> <span class="separator">•</span>
-                        <span>СОКРАТИЛ ПРОСТОЙ МИГРАЦИИ НА 70–80%</span> <span class="separator">•</span>
-                        <span>ОБРАЗОВАТЕЛЬНАЯ ШКОЛА 21</span> <span class="separator">•</span>
-                        <span>ЮРИДИЧЕСКАЯ СИСТЕМНОСТЬ И СТРЕССОУСТОЙЧИВОСТЬ</span> <span class="separator">•</span>
+        <section class="section experience-section" id="experience" aria-labelledby="experienceTitle">
+            <div class="container">
+                <div class="section-header section-header-split"><div><span class="section-tag">02 / CAREER TIMELINE</span><h2 id="experienceTitle">От сложных процессов — к сложной инфраструктуре</h2></div><p>Юриспруденция научила разбираться в документации, управлять рисками и сохранять точность под давлением.</p></div>
+                <div class="timeline-nav-wrap"><div class="timeline-nav" id="timelineNav" role="tablist" aria-label="Периоды карьеры">
+                    <button class="timeline-point active" type="button" role="tab" aria-selected="true" aria-controls="experience-amnis" data-experience="amnis"><span>2026 — сейчас</span><strong>Амнис-Групп</strong><small>SysAdmin / L1–L2</small></button>
+                    <button class="timeline-point" type="button" role="tab" aria-selected="false" aria-controls="experience-school" data-experience="school" tabindex="-1"><span>2025 — сейчас</span><strong>Школа 21</strong><small>DevOps-практика</small></button>
+                    <button class="timeline-point" type="button" role="tab" aria-selected="false" aria-controls="experience-peton" data-experience="peton" tabindex="-1"><span>2025 — 2026</span><strong>НИПИ НГ «ПЕТОН»</strong><small>Ведущий юрисконсульт</small></button>
+                    <button class="timeline-point" type="button" role="tab" aria-selected="false" aria-controls="experience-bar" data-experience="bar" tabindex="-1"><span>2023 — 2025</span><strong>Коллегия адвокатов</strong><small>Арбитражная практика</small></button>
+                    <button class="timeline-point" type="button" role="tab" aria-selected="false" aria-controls="experience-ubr" data-experience="ubr" tabindex="-1"><span>2022 — 2023</span><strong>Башкирское УБР</strong><small>Ведущий юрисконсульт</small></button>
+                </div></div>
+
+                <div class="experience-stage">
+                    <article class="experience-card" id="experience-amnis" data-experience-panel="amnis" role="tabpanel">
+                        <div class="experience-card-head"><div><span class="experience-type">PRODUCTION · ИТ-ОТДЕЛ ИЗ 2 ЧЕЛОВЕК</span><h3>Системный администратор / L1–L2</h3><p>ООО «Амнис-Групп» / ООО «ГлавБашСтрой»</p></div><span class="experience-date">Январь 2026 — настоящее время</span></div>
+                        <div class="career-tabs" role="tablist" aria-label="Подробности о работе в Амнис-Групп"><button class="career-tab active" role="tab" aria-selected="true" data-career-tab="duties">Задачи</button><button class="career-tab" role="tab" aria-selected="false" data-career-tab="tools" tabindex="-1">Инструменты</button><button class="career-tab" role="tab" aria-selected="false" data-career-tab="results" tabindex="-1">Результаты</button></div>
+                        <div class="career-pane" data-career-pane="duties"><ul class="check-list"><li>Развертывание и поддержка серверной инфраструктуры, резервное копирование критичных данных.</li><li>Администрирование Active Directory, учетных записей и прав доступа.</li><li>Поддержка LAN, Wi-Fi и VPN; диагностика сетевых и аппаратных сбоев.</li><li>Подготовка и ремонт 50+ рабочих станций, поддержка пользователей и клиентских модулей 1С.</li></ul></div>
+                        <div class="career-pane" data-career-pane="tools" hidden><div class="tool-cloud"><span>Linux</span><span>Windows Server</span><span>Active Directory</span><span>Bash</span><span>LAN / Wi-Fi</span><span>VPN</span><span>CMDB</span><span>Netplan</span><span>1С</span><span>ЭДО</span></div></div>
+                        <div class="career-pane" data-career-pane="results" hidden><div class="result-grid"><div><strong>−70–80%</strong><span>простоя при миграции</span></div><div><strong>−40%</strong><span>времени диагностики</span></div><div><strong>230К ₽+</strong><span>экономии на ремонте</span></div><div><strong>100%</strong><span>NPS поддержки</span></div></div></div>
+                    </article>
+
+                    <article class="experience-card" id="experience-school" data-experience-panel="school" role="tabpanel" hidden>
+                        <div class="experience-card-head"><div><span class="experience-type">INTENSIVE PRACTICE · PEER-TO-PEER</span><h3>Ученик / DevOps-проекты</h3><p>Образовательная платформа «Школа 21», Уфа</p></div><span class="experience-date">Октябрь 2025 — настоящее время</span></div>
+                        <div class="career-tabs" role="tablist" aria-label="Подробности об учебе в Школе 21"><button class="career-tab active" role="tab" aria-selected="true" data-career-tab="duties">Задачи</button><button class="career-tab" role="tab" aria-selected="false" data-career-tab="tools" tabindex="-1">Инструменты</button><button class="career-tab" role="tab" aria-selected="false" data-career-tab="results" tabindex="-1">Результаты</button></div>
+                        <div class="career-pane" data-career-pane="duties"><ul class="check-list"><li>Проектирование наблюдаемости микросервисов и многостадийных CI/CD-конвейеров.</li><li>Настройка сетей Linux, маршрутизации, DHCP, NAT, iptables и SSH-туннелей.</li><li>Практика SQL, PostgreSQL, Bash и RESTful API на Python / Flask.</li><li>Самостоятельное изучение документации и взаимное ревью решений с другими студентами.</li></ul></div>
+                        <div class="career-pane" data-career-pane="tools" hidden><div class="tool-cloud"><span>Docker Swarm</span><span>GitLab CI/CD</span><span>Prometheus</span><span>Grafana</span><span>Loki</span><span>Alertmanager</span><span>PostgreSQL</span><span>Python</span><span>Flask</span><span>Linux</span><span>iptables</span></div></div>
+                        <div class="career-pane" data-career-pane="results" hidden><ul class="check-list"><li>Три законченных инфраструктурных проекта: Observability, CI/CD и Linux Network.</li><li>Нагрузочная проверка мониторинга и проверка сетевой связности.</li><li>Победа в номинации «Душа бассейна» по анонимному голосованию участников интенсива.</li></ul></div>
+                    </article>
+
+                    <article class="experience-card" id="experience-peton" data-experience-panel="peton" role="tabpanel" hidden>
+                        <div class="experience-card-head"><div><span class="experience-type">НЕФТЕГАЗОВЫЙ ИНЖИНИРИНГ</span><h3>Ведущий юрисконсульт</h3><p>ООО «НИПИ НГ „ПЕТОН“»</p></div><span class="experience-date">Октябрь 2025 — январь 2026</span></div>
+                        <div class="career-tabs" role="tablist" aria-label="Подробности о работе в ПЕТОН"><button class="career-tab active" role="tab" aria-selected="true" data-career-tab="duties">Задачи</button><button class="career-tab" role="tab" aria-selected="false" data-career-tab="tools" tabindex="-1">Инструменты</button><button class="career-tab" role="tab" aria-selected="false" data-career-tab="results" tabindex="-1">Результаты</button></div>
+                        <div class="career-pane" data-career-pane="duties"><ul class="check-list"><li>Самостоятельное ведение арбитражных споров на всех стадиях процесса.</li><li>Правовое сопровождение технических договоров и операционных процессов.</li><li>Due Diligence контрагентов и оценка рисков субподряда.</li></ul></div>
+                        <div class="career-pane" data-career-pane="tools" hidden><div class="tool-cloud"><span>Арбитражный процесс</span><span>Due Diligence</span><span>Excel</span><span>Технические договоры</span><span>Комплаенс</span></div></div>
+                        <div class="career-pane" data-career-pane="results" hidden><div class="result-grid result-grid-three"><div><strong>30</strong><span>параллельных судебных дел</span></div><div><strong>2 недели</strong><span>до самостоятельной работы</span></div><div><strong>100%</strong><span>контроль критических сроков</span></div></div></div>
+                    </article>
+
+                    <article class="experience-card" id="experience-bar" data-experience-panel="bar" role="tabpanel" hidden>
+                        <div class="experience-card-head"><div><span class="experience-type">СЛОЖНЫЕ АРБИТРАЖНЫЕ СПОРЫ</span><h3>Юрист арбитражной практики</h3><p>Уральская коллегия адвокатов Республики Башкортостан</p></div><span class="experience-date">Апрель 2023 — октябрь 2025</span></div>
+                        <div class="career-tabs" role="tablist" aria-label="Подробности о работе в коллегии адвокатов"><button class="career-tab active" role="tab" aria-selected="true" data-career-tab="duties">Задачи</button><button class="career-tab" role="tab" aria-selected="false" data-career-tab="tools" tabindex="-1">Инструменты</button><button class="career-tab" role="tab" aria-selected="false" data-career-tab="results" tabindex="-1">Результаты</button></div>
+                        <div class="career-pane" data-career-pane="duties"><ul class="check-list"><li>Стратегия и ведение многоэпизодных споров, включая апелляцию и кассацию.</li><li>Погружение в строительную и инженерную экспертизу для поиска слабых мест в заключениях.</li><li>Координация четырех стажеров и ревью их документов.</li></ul></div>
+                        <div class="career-pane" data-career-pane="tools" hidden><div class="tool-cloud"><span>Системный анализ</span><span>Due Diligence</span><span>Проектная работа</span><span>Ревью документов</span><span>Наставничество</span></div></div>
+                        <div class="career-pane" data-career-pane="results" hidden><div class="result-grid result-grid-three"><div><strong>2 × 1,4 млрд ₽+</strong><span>выигранных спора</span></div><div><strong>4 стажера</strong><span>координация и ревью</span></div><div><strong>600К ₽</strong><span>премия за результат</span></div></div></div>
+                    </article>
+
+                    <article class="experience-card" id="experience-ubr" data-experience-panel="ubr" role="tabpanel" hidden>
+                        <div class="experience-card-head"><div><span class="experience-type">ПРОИЗВОДСТВЕННОЕ ПРЕДПРИЯТИЕ</span><h3>Ведущий юрисконсульт</h3><p>ООО «Башкирское УБР»</p></div><span class="experience-date">Март 2022 — апрель 2023</span></div>
+                        <div class="career-tabs" role="tablist" aria-label="Подробности о работе в Башкирском УБР"><button class="career-tab active" role="tab" aria-selected="true" data-career-tab="duties">Задачи</button><button class="career-tab" role="tab" aria-selected="false" data-career-tab="tools" tabindex="-1">Инструменты</button><button class="career-tab" role="tab" aria-selected="false" data-career-tab="results" tabindex="-1">Результаты</button></div>
+                        <div class="career-pane" data-career-pane="duties"><ul class="check-list"><li>Операционная поддержка трех производственных объектов бурового предприятия.</li><li>Разработка и экспертиза договоров подряда, поставки и технического обслуживания.</li><li>Претензионная работа и взаимодействие с Ростехнадзором и ФНС.</li></ul></div>
+                        <div class="career-pane" data-career-pane="tools" hidden><div class="tool-cloud"><span>Договорная работа</span><span>Due Diligence</span><span>Управление рисками</span><span>Ростехнадзор</span><span>ФНС</span></div></div>
+                        <div class="career-pane" data-career-pane="results" hidden><div class="result-grid result-grid-three"><div><strong>90%</strong><span>текущих задач закрывал автономно</span></div><div><strong>3 объекта</strong><span>полное сопровождение</span></div><div><strong>0</strong><span>внешних консультантов для текучки</span></div></div></div>
+                    </article>
+                </div>
+                <div class="experience-controls"><button class="button button-quiet" id="experiencePrev" type="button" aria-label="Предыдущий период"><svg class="icon icon-back"><use href="#icon-arrow"/></svg>Назад</button><span id="experienceCounter">01 / 05</span><button class="button button-quiet" id="experienceNext" type="button" aria-label="Следующий период">Далее<svg class="icon"><use href="#icon-arrow"/></svg></button></div>
+                <div class="education-note"><span class="mono-label">EDUCATION</span><p><strong>Юриспруденция с отличием</strong> · Уфимский университет науки и технологий, 2023</p><span>Системность подтверждена дипломом и практикой</span></div>
+            </div>
+        </section>
+
+        <section class="section skills-section" id="skills" aria-labelledby="skillsTitle">
+            <div class="container">
+                <div class="section-header section-header-split"><div><span class="section-tag">03 / SKILL MATRIX</span><h2 id="skillsTitle">Навык = примененный инструмент</h2></div><p>Нажмите на технологию, чтобы увидеть, в какой задаче она использовалась и что получилось.</p></div>
+                <div class="skills-grid">
+                    <article class="skill-group tilt-card" data-tilt><div class="skill-group-head"><span class="group-index">01</span><div><h3>Linux &amp; Сети (DO)</h3><p>Администрирование ОС, сети и файрволы</p></div></div><div class="skill-list"><button class="skill-chip" data-skill="linux">Linux System Administration<svg class="icon"><use href="#icon-chevron"/></svg></button><button class="skill-chip" data-skill="networks">Linux Networking &amp; Netplan<svg class="icon"><use href="#icon-chevron"/></svg></button><button class="skill-chip" data-skill="subnetting">IP Subnetting &amp; CIDR<svg class="icon"><use href="#icon-chevron"/></svg></button><button class="skill-chip" data-skill="iptables">Traffic Filtering &amp; iptables<svg class="icon"><use href="#icon-chevron"/></svg></button><button class="skill-chip" data-skill="routing">Static Routing &amp; ip route<svg class="icon"><use href="#icon-chevron"/></svg></button><button class="skill-chip" data-skill="dhcp">DHCP Server Configuration<svg class="icon"><use href="#icon-chevron"/></svg></button><button class="skill-chip" data-skill="services">Network Services (DNS, FTP, SSH)<svg class="icon"><use href="#icon-chevron"/></svg></button><button class="skill-chip" data-skill="iperf">Network Performance (iperf3)<svg class="icon"><use href="#icon-chevron"/></svg></button></div></article>
+                    <article class="skill-group tilt-card" data-tilt><div class="skill-group-head"><span class="group-index">02</span><div><h3>Мониторинг и Docker (DO)</h3><p>Контейнеры, CI/CD и наблюдаемость</p></div></div><div class="skill-list"><button class="skill-chip" data-skill="bash_metrics">Bash Scripting &amp; System Metrics<svg class="icon"><use href="#icon-chevron"/></svg></button><button class="skill-chip" data-skill="adv_bash">Advanced Bash Scripting<svg class="icon"><use href="#icon-chevron"/></svg></button><button class="skill-chip" data-skill="docker_cont">Docker &amp; Containerization<svg class="icon"><use href="#icon-chevron"/></svg></button><button class="skill-chip" data-skill="nginx_proxy">Nginx Reverse Proxy<svg class="icon"><use href="#icon-chevron"/></svg></button><button class="skill-chip" data-skill="dockle">Docker Security (Dockle)<svg class="icon"><use href="#icon-chevron"/></svg></button><button class="skill-chip" data-skill="gitlab_ci">GitLab CI/CD Pipelines<svg class="icon"><use href="#icon-chevron"/></svg></button><button class="skill-chip" data-skill="clang">Code Style &amp; Linters (clang-format)<svg class="icon"><use href="#icon-chevron"/></svg></button><button class="skill-chip" data-skill="telegram_bot">Automated Notifications (Telegram)<svg class="icon"><use href="#icon-chevron"/></svg></button><button class="skill-chip" data-skill="docker_compose">Docker Compose &amp; Multi-Container<svg class="icon"><use href="#icon-chevron"/></svg></button><button class="skill-chip" data-skill="vagrant">Infrastructure Provisioning (Vagrant)<svg class="icon"><use href="#icon-chevron"/></svg></button><button class="skill-chip" data-skill="postman">API Testing (Postman / Newman)<svg class="icon"><use href="#icon-chevron"/></svg></button><button class="skill-chip" data-skill="portainer">Portainer &amp; Container Management<svg class="icon"><use href="#icon-chevron"/></svg></button><button class="skill-chip" data-skill="prometheus">Prometheus Metrics Collection<svg class="icon"><use href="#icon-chevron"/></svg></button><button class="skill-chip" data-skill="grafana">Grafana Dashboards<svg class="icon"><use href="#icon-chevron"/></svg></button><button class="skill-chip" data-skill="alertmanager">Alertmanager &amp; Alert Rules<svg class="icon"><use href="#icon-chevron"/></svg></button><button class="skill-chip" data-skill="loki">Grafana Loki (Log Aggregation)<svg class="icon"><use href="#icon-chevron"/></svg></button></div></article>
+                    <article class="skill-group tilt-card" data-tilt><div class="skill-group-head"><span class="group-index">03</span><div><h3>Базы данных и SQL (SQL)</h3><p>Запросы, оптимизация и PL/pgSQL</p></div></div><div class="skill-list"><button class="skill-chip" data-skill="pg_basics">PostgreSQL &amp; Basic SQL Queries<svg class="icon"><use href="#icon-chevron"/></svg></button><button class="skill-chip" data-skill="joins">SQL JOINs &amp; Set Operations<svg class="icon"><use href="#icon-chevron"/></svg></button><button class="skill-chip" data-skill="adv_joins">Advanced SQL JOINs &amp; Subqueries<svg class="icon"><use href="#icon-chevron"/></svg></button><button class="skill-chip" data-skill="dml">SQL DML (INSERT, UPDATE, DELETE)<svg class="icon"><use href="#icon-chevron"/></svg></button><button class="skill-chip" data-skill="views">SQL Views &amp; Database Snapshots<svg class="icon"><use href="#icon-chevron"/></svg></button><button class="skill-chip" data-skill="graph">SQL Graph &amp; Recursive CTEs<svg class="icon"><use href="#icon-chevron"/></svg></button><button class="skill-chip" data-skill="indexes">Database Indexing (B-Tree, Hash)<svg class="icon"><use href="#icon-chevron"/></svg></button><button class="skill-chip" data-skill="pg_features">PostgreSQL Advanced Features<svg class="icon"><use href="#icon-chevron"/></svg></button><button class="skill-chip" data-skill="olap">SQL OLAP &amp; Window Functions<svg class="icon"><use href="#icon-chevron"/></svg></button><button class="skill-chip" data-skill="isolation">Transaction Isolation Levels<svg class="icon"><use href="#icon-chevron"/></svg></button><button class="skill-chip" data-skill="plpgsql">PostgreSQL PL/pgSQL Functions<svg class="icon"><use href="#icon-chevron"/></svg></button></div></article>
+                    <article class="skill-group tilt-card" data-tilt><div class="skill-group-head"><span class="group-index">04</span><div><h3>Прикладной трек (APP)</h3><p>Алгоритмы, бэкенд и API на Python</p></div></div><div class="skill-list"><button class="skill-chip" data-skill="python_alg">Python Algorithms &amp; Data Structures<svg class="icon"><use href="#icon-chevron"/></svg></button><button class="skill-chip" data-skill="python_multi">Python Multiprocessing &amp; Concurrency<svg class="icon"><use href="#icon-chevron"/></svg></button><button class="skill-chip" data-skill="flask_api">Python Flask REST API<svg class="icon"><use href="#icon-chevron"/></svg></button><button class="skill-chip" data-skill="flask_pg">Flask, PostgreSQL &amp; Dependency Inj.<svg class="icon"><use href="#icon-chevron"/></svg></button></div></article>
+                </div>
+            </div>
+        </section>
+
+        <div class="marquee-container marquee-reverse" aria-hidden="true"><div class="marquee-track"><div class="marquee-content"><span>NPS 100% В ПОДДЕРЖКЕ</span><i>•</i><span>230К+ ₽ ЭКОНОМИИ НА ЖЕЛЕЗЕ</span><i>•</i><span>ПРОСТОЙ МИГРАЦИИ −70–80%</span><i>•</i><span>3 ПРОЕКТА SCHOOL 21</span><i>•</i><span>ДОКУМЕНТАЦИЯ ВМЕСТО ДОГАДОК</span><i>•</i></div><div class="marquee-content"><span>NPS 100% В ПОДДЕРЖКЕ</span><i>•</i><span>230К+ ₽ ЭКОНОМИИ НА ЖЕЛЕЗЕ</span><i>•</i><span>ПРОСТОЙ МИГРАЦИИ −70–80%</span><i>•</i><span>3 ПРОЕКТА SCHOOL 21</span><i>•</i><span>ДОКУМЕНТАЦИЯ ВМЕСТО ДОГАДОК</span><i>•</i></div></div></div>
+
+        <section class="section projects-section" id="projects" aria-labelledby="projectsTitle">
+            <div class="container">
+                <div class="section-header section-header-with-controls"><div><span class="section-tag">04 / SCHOOL 21 · CASE FILES</span><h2 id="projectsTitle">Практика: задача → реализация → результат</h2><p>Три инженерных проекта с конфигурациями, проверками и понятной архитектурой.</p></div><div class="carousel-controls"><button class="icon-button" id="projectPrev" type="button" aria-label="Предыдущий проект"><svg class="icon icon-back"><use href="#icon-arrow"/></svg></button><button class="icon-button" id="projectNext" type="button" aria-label="Следующий проект"><svg class="icon"><use href="#icon-arrow"/></svg></button></div></div>
+                <div class="projects-track" id="projectsTrack" tabindex="0" aria-label="Карусель проектов">
+                    <article class="project-card tilt-card" data-tilt>
+                        <div class="project-card-top"><span class="project-number">CASE_01</span><span class="project-badge">OBSERVABILITY</span></div>
+                        <div class="project-diagram" aria-label="Схема: экспортеры, Prometheus, Grafana и Alertmanager"><svg viewBox="0 0 520 190" role="img"><g class="diagram-links"><path d="M112 45H210V95H272M112 95H272M112 145H210V95"/><path d="M348 95H405V48H462M348 95H462M348 95H405V145H462"/></g><g class="diagram-nodes"><rect x="20" y="25" width="92" height="40" rx="7"/><rect x="20" y="75" width="92" height="40" rx="7"/><rect x="20" y="125" width="92" height="40" rx="7"/><rect x="272" y="70" width="76" height="50" rx="7" class="node-accent"/><rect x="432" y="28" width="68" height="40" rx="7"/><rect x="432" y="75" width="68" height="40" rx="7"/><rect x="432" y="125" width="68" height="40" rx="7"/></g><g class="diagram-labels"><text x="66" y="50">Node Exp.</text><text x="66" y="100">cAdvisor</text><text x="66" y="150">Blackbox</text><text x="310" y="91">Prome-</text><text x="310" y="106">theus</text><text x="466" y="53">Grafana</text><text x="466" y="100">Loki</text><text x="466" y="150">Alerts</text></g></svg></div>
+                        <h3>Централизованный мониторинг микросервисов</h3><p><strong>Задача:</strong> собрать метрики и логи распределенной системы, автоматически находить новые цели и доставлять критичные алерты.</p>
+                        <div class="tech-tags"><span>Docker Swarm</span><span>Prometheus</span><span>Grafana</span><span>Loki</span></div>
+                        <div class="project-result"><span>РЕЗУЛЬТАТ</span><p>Единый стек наблюдаемости с дашбордами и уведомлениями в Telegram; проверен утилитой stress.</p></div>
+                        <div class="project-actions"><button class="button button-secondary open-project" type="button" data-project="observability">Разобрать кейс<svg class="icon"><use href="#icon-arrow"/></svg></button><a href="https://github.com/flagminn/devops-portfolio" target="_blank" rel="noopener noreferrer" class="project-repo" aria-label="Открыть репозиторий проектов на GitHub">GitHub<svg class="icon"><use href="#icon-external"/></svg></a></div>
+                    </article>
+
+                    <article class="project-card tilt-card" data-tilt>
+                        <div class="project-card-top"><span class="project-number">CASE_02</span><span class="project-badge">CI / CD</span></div>
+                        <div class="project-diagram pipeline-diagram" aria-label="Схема конвейера сборки, проверки и развертывания"><svg viewBox="0 0 520 190" role="img"><g class="diagram-links"><path d="M105 95H160M240 95H295M375 95H430"/><path class="dashed" d="M197 125V155H337V125"/></g><g class="diagram-nodes"><rect x="25" y="70" width="80" height="50" rx="7"/><rect x="160" y="70" width="80" height="50" rx="7" class="node-accent"/><rect x="295" y="70" width="80" height="50" rx="7"/><rect x="430" y="70" width="70" height="50" rx="7"/><rect x="267" y="145" width="140" height="28" rx="6"/></g><g class="diagram-labels"><text x="65" y="100">Commit</text><text x="200" y="100">Build</text><text x="335" y="100">Test</text><text x="465" y="100">Deploy</text><text x="337" y="164">Telegram notify</text></g></svg></div>
+                        <h3>CI/CD для сборки и доставки C-проектов</h3><p><strong>Задача:</strong> автоматизировать компиляцию, контроль стиля, тестирование и безопасную ручную публикацию артефактов.</p>
+                        <div class="tech-tags"><span>GitLab CI/CD</span><span>Make</span><span>Bash</span><span>SSH / SCP</span></div>
+                        <div class="project-result"><span>РЕЗУЛЬТАТ</span><p>Многостадийный конвейер с блокировкой при ошибках стиля и Telegram-уведомлениями о статусах.</p></div>
+                        <div class="project-actions"><button class="button button-secondary open-project" type="button" data-project="cicd">Разобрать кейс<svg class="icon"><use href="#icon-arrow"/></svg></button><a href="https://github.com/flagminn/devops-portfolio" target="_blank" rel="noopener noreferrer" class="project-repo" aria-label="Открыть репозиторий проектов на GitHub">GitHub<svg class="icon"><use href="#icon-external"/></svg></a></div>
+                    </article>
+
+                    <article class="project-card tilt-card" data-tilt>
+                        <div class="project-card-top"><span class="project-number">CASE_03</span><span class="project-badge">LINUX NETWORK</span></div>
+                        <div class="project-diagram" aria-label="Схема сети из трех виртуальных машин с маршрутизацией и NAT"><svg viewBox="0 0 520 190" role="img"><g class="diagram-links"><path d="M115 95H195M325 95H405"/><path d="M260 65V28H405V65"/><path class="dashed" d="M260 125V160H405V125"/></g><g class="diagram-nodes"><rect x="25" y="65" width="90" height="60" rx="7"/><rect x="195" y="65" width="130" height="60" rx="7" class="node-accent"/><rect x="405" y="65" width="90" height="60" rx="7"/><rect x="370" y="10" width="70" height="35" rx="7"/><rect x="370" y="145" width="70" height="35" rx="7"/></g><g class="diagram-labels"><text x="70" y="91">VM-01</text><text x="70" y="108">DHCP</text><text x="260" y="91">VM-02 · Router</text><text x="260" y="108">iptables / NAT</text><text x="450" y="91">VM-03</text><text x="450" y="108">iperf3</text><text x="405" y="33">WAN</text><text x="405" y="168">SSH</text></g></svg></div>
+                        <h3>Маршрутизация и защита узлов Linux</h3><p><strong>Задача:</strong> спроектировать адресацию, связность и правила фильтрации для сети виртуальных машин.</p>
+                        <div class="tech-tags"><span>Netplan</span><span>iptables</span><span>DHCP / NAT</span><span>iperf3</span></div>
+                        <div class="project-result"><span>РЕЗУЛЬТАТ</span><p>Статические маршруты, NAT и SSH-туннели настроены; политики файрвола и пропускная способность проверены.</p></div>
+                        <div class="project-actions"><button class="button button-secondary open-project" type="button" data-project="network">Разобрать кейс<svg class="icon"><use href="#icon-arrow"/></svg></button><a href="https://github.com/flagminn/devops-portfolio" target="_blank" rel="noopener noreferrer" class="project-repo" aria-label="Открыть репозиторий проектов на GitHub">GitHub<svg class="icon"><use href="#icon-external"/></svg></a></div>
+                    </article>
+                </div>
+                <p class="carousel-hint">Листайте карточки горизонтально или используйте стрелки</p>
+            </div>
+        </section>
+
+        <section class="section synergy-section" id="about" aria-labelledby="aboutTitle">
+            <div class="container synergy-grid">
+                <div class="synergy-intro"><span class="section-tag">05 / TRANSFERABLE SKILLS</span><h2 id="aboutTitle">Юридический бэкграунд — это инженерное преимущество</h2><p>Не смена логики работы, а новая область ее применения: разобраться в системе, найти риск, зафиксировать решение и довести до результата.</p><a href="#faq" class="text-link">Почему я перешел в ИТ<svg class="icon"><use href="#icon-arrow"/></svg></a></div>
+                <div class="synergy-points"><article><span>01</span><div><h3>Спокойствие при инциденте</h3><p>Опыт 30 параллельных процессов и критических дедлайнов помогает не путать панику с диагностикой.</p></div></article><article><span>02</span><div><h3>Документация и регламенты</h3><p>Сначала источник и ограничения, затем изменение. Решения и конфигурации должны быть воспроизводимыми.</p></div></article><article><span>03</span><div><h3>Перевод с технического на человеческий</h3><p>Умею объяснить проблему пользователю без жаргона, а команде — передать факты и следующий шаг.</p></div></article></div>
+            </div>
+        </section>
+
+        <section class="section quiz-section" id="quiz" aria-labelledby="quizTitle">
+            <div class="container">
+                <div class="quiz-shell morph-target">
+                    <div class="quiz-aside"><span class="section-tag">06 / TEAM FIT CHECK</span><h2 id="quizTitle">Подхожу ли я вашей команде?</h2><p>Четыре ситуации из инженерной практики. В конце — совпадение по рабочим принципам, а не психологический тест.</p><div class="quiz-aside-terminal"><span>$ cat /etc/team-fit.conf</span><p>documentation = true<br>rollback_plan = required<br>monitoring = enabled<br>routine = automate</p></div></div>
+                    <div class="quiz-main">
+                        <div class="quiz-intro" id="quizIntro"><span class="quiz-duration">≈ 60 СЕКУНД · 4 ВОПРОСА</span><h3>Как вы подходите к инфраструктуре?</h3><p>Выбирайте ближайший к вашим процессам вариант. Правильных ответов с точки зрения «угадать кандидата» здесь нет.</p><button class="button button-primary" id="quizStart" type="button">Начать проверку<svg class="icon"><use href="#icon-arrow"/></svg></button></div>
+                        <div class="quiz-game" id="quizGame" hidden><div class="quiz-progress-head"><span id="quizStepLabel">ВОПРОС 01 / 04</span><span id="quizScoreLabel">PRIORITY MATCH</span></div><div class="quiz-progress" id="quizProgress" role="progressbar" aria-label="Прогресс квиза" aria-valuemin="0" aria-valuemax="4" aria-valuenow="1"><i id="quizProgressBar"></i></div><h3 id="quizQuestion"></h3><div class="quiz-options" id="quizOptions"></div></div>
+                        <div class="quiz-result" id="quizResult" hidden><span class="mono-label">MATCH_RESULT</span><div class="quiz-result-score"><strong id="quizScore">0%</strong><span>совпадение по выбранным принципам</span></div><h3 id="quizResultTitle"></h3><p id="quizResultText"></p><ul class="check-list" id="quizArguments"></ul><div class="quiz-result-actions"><a href="https://t.me/flagminn" id="quizContact" target="_blank" rel="noopener noreferrer" class="button button-primary">Обсудить в Telegram<svg class="icon"><use href="#icon-arrow"/></svg></a><button class="button button-quiet" id="quizRestart" type="button">Пройти заново</button></div></div>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <!-- 3. PROJECTS SECTION (Инженерные кейсы с модалками) -->
-            <section class="projects-section" id="projects">
-                <div class="container">
-                    <div class="section-header">
-                        <span class="section-tag">/ PORTFOLIO & ARCHITECTURE</span>
-                        <h2>Инженерные кейсы и проекты</h2>
-                        <p>Ключевые инфраструктурные внедрения, системы мониторинга и автоматизации</p>
-                    </div>
-
-                    <div class="bento-projects-grid">
-                        
-                        <!-- Project 1: Observability Stack -->
-                        <div class="bento-card project-card tilt-card" data-tilt data-project-id="1">
-                            <div class="card-glow"></div>
-                            <div class="project-top">
-                                <span class="project-badge">Школа 21 / DevOps</span>
-                                <span class="project-id">#01</span>
-                            </div>
-                            <h3>«Умный город» — Observability Stack</h3>
-                            <p class="project-desc">
-                                Проектирование и внедрение отказоустойчивой системы комплексного мониторинга, сбора системных метрик, логирования и алертинга.
-                            </p>
-                            <div class="tech-tags">
-                                <span>Docker Swarm</span>
-                                <span>Prometheus</span>
-                                <span>Grafana</span>
-                                <span>Loki</span>
-                                <span>Alertmanager</span>
-                            </div>
-                            <div class="project-footer">
-                                <button class="btn-details open-modal" data-target="modal-1">
-                                    <span>Архитектура и разбор</span>
-                                    <span>&rarr;</span>
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Project 2: CI/CD Pipeline -->
-                        <div class="bento-card project-card tilt-card" data-tilt data-project-id="2">
-                            <div class="card-glow"></div>
-                            <div class="project-top">
-                                <span class="project-badge">Школа 21 / CI-CD</span>
-                                <span class="project-id">#02</span>
-                            </div>
-                            <h3>Автоматизация CI/CD пайплайнов</h3>
-                            <p class="project-desc">
-                                Создание автоматизированного конвейера непрерывной интеграции и развертывания для проверки кода, статического анализа и безопасного деплоя.
-                            </p>
-                            <div class="tech-tags">
-                                <span>GitLab CI/CD</span>
-                                <span>Make</span>
-                                <span>Clang-Format</span>
-                                <span>Bash / SCP</span>
-                                <span>Telegram Bot</span>
-                            </div>
-                            <div class="project-footer">
-                                <button class="btn-details open-modal" data-target="modal-2">
-                                    <span>Архитектура и разбор</span>
-                                    <span>&rarr;</span>
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Project 3: Enterprise Infra -->
-                        <div class="bento-card project-card tilt-card wide-card" data-tilt data-project-id="3">
-                            <div class="card-glow"></div>
-                            <div class="project-top">
-                                <span class="project-badge">ООО "Амнис-Групп" / Production</span>
-                                <span class="project-id">#03</span>
-                            </div>
-                            <h3>Производственная инфраструктура и сетевая безопасность</h3>
-                            <p class="project-desc">
-                                Комплексная поддержка, администрирование и обеспечение бесперебойной работы серверной и сетевой инфраструктуры (L1–L2) на производственном предприятии.
-                            </p>
-                            <div class="tech-tags">
-                                <span>Linux Servers</span>
-                                <span>Active Directory</span>
-                                <span>VPN / Nginx</span>
-                                <span>CMDB</span>
-                                <span>Bash Automation</span>
-                            </div>
-                            <div class="project-footer">
-                                <button class="btn-details open-modal" data-target="modal-3">
-                                    <span>Архитектура и разбор</span>
-                                    <span>&rarr;</span>
-                                </button>
-                            </div>
-                        </div>
-
-                    </div>
+        <section class="section faq-section" id="faq" aria-labelledby="faqTitle">
+            <div class="container faq-layout">
+                <div class="faq-intro"><span class="section-tag">07 / OBJECTION HANDLING</span><h2 id="faqTitle">Вопросы, которые вы зададите на собеседовании</h2><p>Коротко отвечаю на главное до созвона.</p><a class="button button-secondary" href="https://t.me/flagminn?text=%D0%90%D0%B7%D0%B0%D1%82%2C%20%D0%B7%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9E%D1%81%D1%82%D0%B0%D0%BB%D1%81%D1%8F%20%D0%B2%D0%BE%D0%BF%D1%80%D0%BE%D1%81%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D0%BF%D1%80%D0%BE%D1%81%D0%BC%D0%BE%D1%82%D1%80%D0%B0%20%D0%B2%D0%B0%D1%88%D0%B5%D0%B3%D0%BE%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0%3A%20" target="_blank" rel="noopener noreferrer">Задать свой вопрос<svg class="icon"><use href="#icon-arrow"/></svg></a></div>
+                <div class="faq-list">
+                    <details open><summary><span>01</span>Почему вы перешли из юриспруденции в ИТ?<i></i></summary><div class="faq-answer"><p>Мне близка работа со сложными системами: изучить документацию, найти причину, выстроить решение и проверить результат. В ИТ этот цикл короче и нагляднее. Производственная поддержка дала практический опыт, а «Школа 21» — системную инженерную базу. Юридический опыт остался со мной в виде стрессоустойчивости, точности и умения работать с регламентами.</p></div></details>
+                    <details><summary><span>02</span>Чему реально научила «Школа 21»?<i></i></summary><div class="faq-answer"><p>Не только инструментам. Я научился самостоятельно разбирать незнакомую задачу, читать документацию, проверять гипотезы и проходить peer-to-peer ревью. В проектах довел до результата Docker Swarm с мониторингом, GitLab CI/CD и сеть Linux с маршрутизацией и фильтрацией трафика.</p></div></details>
+                    <details><summary><span>03</span>Что вы будете делать, если в проде все упало?<i></i></summary><div class="faq-answer"><p>Сначала фиксирую масштаб и влияние на пользователей, затем проверяю последние изменения и доступность ключевых узлов. Сужаю область по логам и метрикам, восстанавливаю сервис наименее рискованным способом, включая откат. После стабилизации документирую причину, временную линию и действия, чтобы предотвратить повторение.</p></div></details>
+                    <details><summary><span>04</span>Есть ли у вас коммерческий DevOps-опыт?<i></i></summary><div class="faq-answer"><p>Коммерческий опыт сейчас — системное администрирование и L1–L2 на производственном предприятии. DevOps-инструменты я применял в проектах «Школы 21», поэтому позиционирую себя честно: Junior+ DevOps, а не инженер с многолетним production Kubernetes. При этом Linux, сети, бэкапы, AD, автоматизация и поддержка пользователей — моя ежедневная рабочая практика.</p></div></details>
+                    <details><summary><span>05</span>Как вы используете AI и не переносите ли ошибки в конфиги?<i></i></summary><div class="faq-answer"><p>Использую AI для ускорения поиска вариантов, аудита кода и документации, но не подменяю им понимание системы. Разбираю логику команд и конфигураций, сверяю с документацией, проверяю в изолированной среде и предусматриваю откат. В production не применяю непроверенные решения.</p></div></details>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <!-- 4. TECH STACK (Interactive Bento) -->
-            <section class="stack-section" id="stack">
-                <div class="container">
-                    <div class="section-header center">
-                        <span class="section-tag">/ TECHNICAL EXPERTISE</span>
-                        <h2>Технологический стек</h2>
-                        <p>Инструменты, операционные системы и протоколы, с которыми я работаю ежедневно</p>
-                    </div>
+        <section class="section achievements-section" id="achievements" aria-labelledby="achievementsTitle">
+            <div class="container achievements-grid">
+                <div class="achievements-copy"><span class="section-tag">08 / STUDENT &amp; EXTRA LOG</span><h2 id="achievementsTitle">За пределами рабочего тикета</h2><p>Исследования, командные турниры и проекты, в которых сформировались самообучение, публичная аргументация и умение работать вместе.</p><div class="achievement-summary"><div><strong>7</strong><span>Moot Court</span></div><div><strong>10+</strong><span>дебатных турниров</span></div><div><strong>2</strong><span>диплома с отличием</span></div></div></div>
+                <div class="achievement-terminal"><div class="terminal-header"><div class="terminal-dots"><i></i><i></i><i></i></div><span>azat@portfolio: ~/achievements</span><div class="log-controls"><button id="logToggle" type="button" aria-pressed="false">Пауза</button><button id="logNext" type="button">Следующая →</button></div></div><div class="log-command"><span>$</span> tail -f achievements.log</div><ol class="achievement-log" id="achievementLog" aria-label="Журнал достижений"><li class="active"><time>2025</time><span>Победитель номинации «Душа бассейна» в «Школе 21» — выбор участников интенсива.</span><b>[OK]</b></li><li><time>2023</time><span>Диплом юриста с отличием, Уфимский университет науки и технологий.</span><b>[OK]</b></li><li><time>2021</time><span>III место команды БашГУ на MGIMO Civil Moot Court среди 80+ команд.</span><b>[OK]</b></li><li><time>2021</time><span>I место в турнире по парламентским дебатам «I кубок Достоевского».</span><b>[OK]</b></li><li><time>2020</time><span>Лауреат II степени премии «Студент года» в номинации «Юридическое объединение года».</span><b>[OK]</b></li><li><time>2019</time><span>Лауреат I степени премии «Студент года» в номинации «Юридическое объединение года».</span><b>[OK]</b></li><li><time>ARCHIVE</time><span>Абсолютный победитель V Всероссийской олимпиады по сравнительному правоведению.</span><b>[OK]</b></li><li><time>OFFLINE</time><span>Dungeons &amp; Dragons: мастер игры; около 40 настольных игр в коллекции.</span><b>[FUN]</b></li></ol><div class="terminal-status"><span><i></i> log stream active</span><span>8 records</span></div></div>
+            </div>
+        </section>
+    </main>
 
-                    <div class="bento-stack-grid">
-                        <div class="stack-card tilt-card" data-tilt>
-                            <div class="stack-icon">&#128187;</div>
-                            <h4>OS & Networking</h4>
-                            <p>Linux (Ubuntu), Bash, SSH, TCP/IP, DNS, NTP, Nginx, Netplan, iptables</p>
-                            <div class="stack-level">Advanced</div>
-                        </div>
-                        <div class="stack-card tilt-card" data-tilt>
-                            <div class="stack-icon">&#9881;</div>
-                            <h4>DevOps & CI/CD</h4>
-                            <p>Docker, Docker Compose, Docker Swarm, GitLab CI/CD, Git, Make</p>
-                            <div class="stack-level">Production Ready</div>
-                        </div>
-                        <div class="stack-card tilt-card" data-tilt>
-                            <div class="stack-icon">&#128202;</div>
-                            <h4>Monitoring & DB</h4>
-                            <p>Prometheus, Grafana, Loki, Alertmanager, PostgreSQL, SQL</p>
-                            <div class="stack-level">Observability Stack</div>
-                        </div>
-                        <div class="stack-card tilt-card" data-tilt>
-                            <div class="stack-icon">&#128104;&#8205;&#128187;</div>
-                            <h4>Tools & Enterprise</h4>
-                            <p>Python, Vim, Nano, Active Directory, Windows Server / Workstations, CMDB</p>
-                            <div class="stack-level">L1 - L2 Support</div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 5. SYNERGY SECTION (Legal-Tech Advantage) -->
-            <section class="synergy-section" id="synergy">
-                <div class="container morph-container">
-                    <div class="synergy-wrapper">
-                        <div class="synergy-left">
-                            <span class="section-tag">/ UNIQUE ADVANTAGE</span>
-                            <h2>От защиты интересов в суде — к защите стабильности ИТ-инфраструктуры.</h2>
-                            <p class="synergy-lead">
-                                Мой юридический бэкграунд (включая победы в спорах на 1,4+ млрд рублей и жесткую практику в нефтегазовом инжиниринге) сформировал уникальные качества для современного инженера:
-                            </p>
-                        </div>
-                        <div class="synergy-right">
-                            <div class="synergy-point tilt-card" data-tilt>
-                                <div class="point-num">01</div>
-                                <div class="point-content">
-                                    <h4>Абсолютная стрессоустойчивость</h4>
-                                    <p>Умение принимать взвешенные и хладнокровные решения в кризисных инцидентах, когда каждый час простоя стоит бизнеса.</p>
-                                </div>
-                            </div>
-                            <div class="synergy-point tilt-card" data-tilt>
-                                <div class="point-num">02</div>
-                                <div class="point-content">
-                                    <h4>Системность и регламенты</h4>
-                                    <p>Безукоризненное следование инструкциям, ведение строгой технической документации и выстраивание прозрачных процессов (CMDB, бэкапы).</p>
-                                </div>
-                            </div>
-                            <div class="synergy-point tilt-card" data-tilt>
-                                <div class="point-num">03</div>
-                                <div class="point-content">
-                                    <h4>Дипломатия и эмпатия</h4>
-                                    <p>Способность спокойно и понятно объяснять сложные технические аспекты сотрудникам, обеспечивая 100% уровень удовлетворенности (NPS).</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 6. CONTACTS & FOOTER -->
-            <footer class="footer-section" id="contacts">
-                <div class="container footer-container">
-                    <div class="footer-cta-card tilt-card" data-tilt>
-                        <div class="cta-glow"></div>
-                        <span class="section-tag">/ GET IN TOUCH</span>
-                        <h2>Готов усилить вашу команду</h2>
-                        <p>Открыт к позициям Системного администратора, Junior DevOps или специалиста технической поддержки L2.</p>
-                        
-                        <div class="footer-actions">
-                            <a href="https://t.me/flagminn" target="_blank" class="btn-magnetic btn-primary lg">
-                                <span>Связаться в Telegram (@flagminn)</span>
-                                <span>&rarr;</span>
-                            </a>
-                            <a href="mailto:aazat.ibragimov@gmail.com" class="btn-magnetic btn-secondary lg">
-                                <span>aazat.ibragimov@gmail.com</span>
-                            </a>
-                        </div>
-
-                        <div class="social-links-bar">
-                            <a href="https://t.me/flagminn" target="_blank" class="social-item">Telegram</a>
-                            <a href="https://github.com/flagminn" target="_blank" class="social-item">GitHub</a>
-                            <a href="https://set.ki/account/Nj8TabH" target="_blank" class="social-item">Setka</a>
-                            <a href="resume.pdf" download class="social-item">Резюме (PDF)</a>
-                        </div>
-                    </div>
-
-                    <div class="footer-bottom">
-                        <div class="footer-copy">
-                            &copy; 2026 Азат Ибрагимов. All rights reserved. Built with Motion-First standards.
-                        </div>
-                        <div class="footer-status">
-                            <span class="status-dot green"></span>
-                            <span>All Systems Operational</span>
-                        </div>
-                    </div>
-                </div>
-            </footer>
-
+    <footer class="footer-section" id="contacts">
+        <div class="container">
+            <div class="footer-cta-card morph-target">
+                <div class="footer-status"><span class="status-dot"></span>OPEN TO WORK · 2026</div>
+                <h2>Давайте сделаем вашу инфраструктуру надежнее</h2>
+                <p>Рассматриваю позиции системного администратора, Junior+ DevOps и специалиста технической поддержки L2.</p>
+                <div class="footer-actions"><a href="https://t.me/flagminn?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%90%D0%B7%D0%B0%D1%82!%20%D0%A5%D0%BE%D1%82%D0%B5%D0%BB%D0%B8%20%D0%B1%D1%8B%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B2%D0%B0%D0%BA%D0%B0%D0%BD%D1%81%D0%B8%D1%8E." target="_blank" rel="noopener noreferrer" class="button button-primary button-large btn-magnetic">Написать @flagminn<svg class="icon"><use href="#icon-send"/></svg></a><a href="resume.pdf" download class="button button-secondary button-large btn-magnetic">Скачать PDF<svg class="icon"><use href="#icon-download"/></svg></a></div>
+                <div class="contact-grid"><a href="mailto:aazat.ibragimov@gmail.com"><span>EMAIL</span><strong>aazat.ibragimov@gmail.com</strong></a><a href="tel:+79961020331"><span>ТЕЛЕФОН</span><strong>+7 (996) 102-03-31</strong></a><a href="https://github.com/flagminn" target="_blank" rel="noopener noreferrer"><span>GITHUB</span><strong>github.com/flagminn</strong></a><div><span>ЛОКАЦИЯ И ФОРМАТ</span><strong>Уфа · офис / гибрид / remote</strong><small>Без переезда, командировки возможны</small></div></div>
+                <div class="footer-social"><a href="https://set.ki/account/Nj8TabH" target="_blank" rel="noopener noreferrer">Профиль Setka<svg class="icon"><use href="#icon-external"/></svg></a><a href="resume.doc" download>Версия DOC<svg class="icon"><use href="#icon-download"/></svg></a></div>
+            </div>
+            <div class="footer-bottom"><span>© <span id="currentYear">2026</span> Азат Ибрагимов</span><span>HTML · CSS · Vanilla JS <i>/</i> built with care</span><a href="#hero">Наверх ↑</a></div>
         </div>
-    </div>
+    </footer>
 
-    <!-- MODAL OVERLAYS FOR PROJECTS -->
-    <div class="modal-backdrop" id="modalBackdrop">
-        
-        <!-- Modal 1 -->
-        <div class="project-modal" id="modal-1">
-            <button class="modal-close" data-close>&times;</button>
-            <div class="modal-header">
-                <span class="badge">Школа 21 // Проект 01</span>
-                <h2>«Умный город» — Observability Stack</h2>
-            </div>
-            <div class="modal-tabs">
-                <button class="tab-btn active" data-tab="arch">Архитектура</button>
-                <button class="tab-btn" data-tab="config">Конфиги / Стек</button>
-                <button class="tab-btn" data-tab="result">Результат</button>
-            </div>
-            <div class="modal-tab-content active" data-tab-content="arch">
-                <h4>Архитектура и реализация:</h4>
-                <ul>
-                    <li>Развертывание многоконтейнерной инфраструктуры в кластере <strong>Docker Swarm</strong> с изолированными сетями и персистентными томами.</li>
-                    <li>Настройка <strong>Prometheus</strong> для сбора метрик, <strong>Grafana</strong> для визуализации дашбордов, <strong>Grafana Loki</strong> для агрегации логов.</li>
-                    <li>Динамическое Service Discovery через <code>dns_sd_configs</code> для автоматического сбора метрик с Node Exporter, cAdvisor и Blackbox Exporter.</li>
-                </ul>
-            </div>
-            <div class="modal-tab-content" data-tab-content="config">
-                <h4>Сниппеты и алертинг:</h4>
-                <pre><code>groups:
-  - name: node_alerts
-    rules:
-      - alert: HighCPUUsage
-        expr: 100 - (avg by(instance) (rate(node_cpu_seconds_total{mode="idle"}[5m])) * 100) > 85
-        for: 2m
-        labels:
-          severity: critical
-        annotations:
-          summary: "High CPU usage detected on {{ $labels.instance }}"</code></pre>
-            </div>
-            <div class="modal-tab-content" data-tab-content="result">
-                <h4>Итоговый результат:</h4>
-                <p>Развернута централизованная система мониторинга с интерактивными дашбордами в Grafana и мгновенной доставкой критических инцидентов через Prometheus Alertmanager и Telegram Bot API. Работоспособность подтверждена стресс-тестированием.</p>
-            </div>
-        </div>
+    <dialog class="side-dialog" id="skillDialog" aria-labelledby="skillDialogTitle"><div class="dialog-head"><span class="mono-label" id="skillDialogCategory">SKILL_EVIDENCE</span><button class="icon-button" type="button" data-close-dialog aria-label="Закрыть"><svg class="icon"><use href="#icon-close"/></svg></button></div><h2 id="skillDialogTitle"></h2><p class="dialog-lead" id="skillDialogDescription"></p><div class="evidence-block"><span class="mono-label">// ГДЕ ПРИМЕНЯЛ</span><ul class="check-list" id="skillDialogEvidence"></ul></div><a href="https://github.com/flagminn/devops-portfolio" target="_blank" rel="noopener noreferrer" class="text-link dialog-project-link" id="skillDialogLink">Посмотреть проект на GitHub<svg class="icon"><use href="#icon-external"/></svg></a></dialog>
 
-        <!-- Modal 2 -->
-        <div class="project-modal" id="modal-2">
-            <button class="modal-close" data-close>&times;</button>
-            <div class="modal-header">
-                <span class="badge">Школа 21 // Проект 02</span>
-                <h2>Автоматизация CI/CD пайплайнов</h2>
-            </div>
-            <div class="modal-tabs">
-                <button class="tab-btn active" data-tab="arch">Архитектура</button>
-                <button class="tab-btn" data-tab="config">Конфиги / Стек</button>
-                <button class="tab-btn" data-tab="result">Результат</button>
-            </div>
-            <div class="modal-tab-content active" data-tab-content="arch">
-                <h4>Архитектура конвейера:</h4>
-                <ul>
-                    <li>Проектирование многостадийного конвейера в <strong>GitLab CI/CD</strong> (Build, Test, Deploy).</li>
-                    <li>Интеграция автоматической компиляции проектов на C с помощью <code>Make</code> и статического анализатора <code>clang-format</code> с флагом <code>--Werror</code>.</li>
-                    <li>Автоматический прогон юнит-тестов и безопасный деплой по SSH/SCP на целевой сервер.</li>
-                </ul>
-            </div>
-            <div class="modal-tab-content" data-tab-content="config">
-                <h4>gitlab-ci.yml:</h4>
-                <pre><code>stages:
-  - build
-  - test
-  - deploy
+    <dialog class="project-dialog" id="projectDialog" aria-labelledby="projectDialogTitle"><div class="dialog-head"><span class="mono-label" id="projectDialogBadge">CASE_FILE</span><button class="icon-button" type="button" data-close-dialog aria-label="Закрыть"><svg class="icon"><use href="#icon-close"/></svg></button></div><h2 id="projectDialogTitle"></h2><p class="dialog-lead" id="projectDialogTask"></p><div class="project-dialog-tabs" role="tablist" aria-label="Разделы проекта"><button class="project-dialog-tab active" type="button" role="tab" aria-selected="true" data-project-tab="architecture">Реализация</button><button class="project-dialog-tab" type="button" role="tab" aria-selected="false" data-project-tab="code" tabindex="-1">Конфиг / код</button><button class="project-dialog-tab" type="button" role="tab" aria-selected="false" data-project-tab="result" tabindex="-1">Результат</button></div><div class="project-dialog-pane" data-project-pane="architecture"><ul class="check-list" id="projectDialogDetails"></ul></div><div class="project-dialog-pane" data-project-pane="code" hidden><pre><code id="projectDialogCode"></code></pre></div><div class="project-dialog-pane" data-project-pane="result" hidden><div class="project-dialog-result"><span class="status-dot"></span><p id="projectDialogResult"></p></div></div><a href="https://github.com/flagminn/devops-portfolio" target="_blank" rel="noopener noreferrer" class="button button-primary project-dialog-repo">Открыть репозиторий<svg class="icon"><use href="#icon-external"/></svg></a></dialog>
 
-build_job:
-  stage: build
-  script:
-    - make clean && make
-  artifacts:
-    paths:
-      - ./bin/
+    <div class="toast" id="toast" role="status" aria-live="polite"><svg class="icon"><use href="#icon-copy"/></svg><span>Саммари скопировано</span></div>
 
-test_job:
-  stage: test
-  script:
-    - make test</code></pre>
-            </div>
-            <div class="modal-tab-content" data-tab-content="result">
-                <h4>Итоговый результат:</h4>
-                <p>Внедрен полноценный CI/CD конвейер со строгим контролем стиля кода, автоматической сборкой и мгновенными уведомлениями в Telegram о статусах деплоя.</p>
-            </div>
-        </div>
-
-        <!-- Modal 3 -->
-        <div class="project-modal" id="modal-3">
-            <button class="modal-close" data-close>&times;</button>
-            <div class="modal-header">
-                <span class="badge">ООО "Амнис-Групп" // Production</span>
-                <h2>Производственная инфраструктура и сетевая безопасность</h2>
-            </div>
-            <div class="modal-tabs">
-                <button class="tab-btn active" data-tab="arch">Архитектура</button>
-                <button class="tab-btn" data-tab="config">Конфиги / Стек</button>
-                <button class="tab-btn" data-tab="result">Результат</button>
-            </div>
-            <div class="modal-tab-content active" data-tab-content="arch">
-                <h4>Зона ответственности и задачи:</h4>
-                <ul>
-                    <li>Администрирование серверов, настройка регулярного резервного копирования критических баз данных и Active Directory.</li>
-                    <li>Поддержка локальной сети (LAN, Wi-Fi), настройка безопасных VPN-туннелей для удаленных сотрудников.</li>
-                    <li>Разработка Bash-скриптов для автоматической перенастройки сетевых параметров при миграции на новые серверные мощности.</li>
-                </ul>
-            </div>
-            <div class="modal-tab-content" data-tab-content="config">
-                <h4>Bash Automation Example:</h4>
-                <pre><code>#!/bin/bash
-# Network migration helper script
-BACKUP_DIR="/var/backups/network"
-DATE=$(date +%Y%m%d_%H%M%S)
-
-mkdir -p $BACKUP_DIR
-cp /etc/netplan/*.yaml $BACKUP_DIR/netplan_$DATE.bak
-echo "[INFO] Network configs backed up successfully at $DATE"</code></pre>
-            </div>
-            <div class="modal-tab-content" data-tab-content="result">
-                <h4>Итоговый результат:</h4>
-                <p>Сокращение простоя при миграции на 70–80%, ускорение диагностики аппаратных сбоев на 40%, экономия более 230 000 рублей за счет модульного ремонта оборудования своими силами, NPS 100%.</p>
-            </div>
-        </div>
-
-    </div>
-
-    <!-- CDN SCRIPTS: GSAP, ScrollTrigger, TextPlugin, Lenis, VanillaTilt -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
-
-    <!-- Main JS -->
     <script src="script.js"></script>
 </body>
 </html>
