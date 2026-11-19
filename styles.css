@@ -30,15 +30,12 @@
     padding: 0;
 }
 
-html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 92px;
-    background: var(--bg);
-    color-scheme: dark;
+html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
 }
 
 body {
-    min-width: 320px;
     overflow-x: hidden;
     background: var(--bg);
     color: var(--text);
@@ -589,7 +586,9 @@ ul, ol {
 
 .recruiter-panel {
     visibility: hidden;
-    width: min(370px, calc(100vw - 32px));
+    width: min(370px, calc(100vw - 24px));
+    max-width: calc(100vw - 24px);
+    box-sizing: border-box;
     padding: 20px;
     transform: translateY(14px) scale(0.97);
     transform-origin: bottom right;
@@ -1242,9 +1241,10 @@ ul, ol {
 
 .device-grid {
     display: grid;
-    grid-template-columns: repeat(10, 1fr);
+    grid-template-columns: repeat(10, minmax(0, 1fr));
     gap: 4px;
     margin-top: 26px;
+    min-width: 0;
 }
 
 .device-grid i {
@@ -2827,8 +2827,8 @@ dialog[open] {
     .hero-actions .button { width: 100%; }
     .inline-terminal { overflow: hidden; gap: 6px; font-size: 0.56rem; }
     #typewriterText { overflow: hidden; text-overflow: ellipsis; }
-    .hero-visual { width: calc(100% - 14px); }
-    .hero-floating-note { right: -7px; bottom: -43px; width: 220px; }
+    .hero-visual { width: calc(100% - 14px); margin-inline: auto; }
+    .hero-floating-note { right: 8px; bottom: -43px; width: 220px; }
     .marquee-content { gap: 22px; padding-right: 22px; font-size: 0.6rem; }
     .dashboard-shell { border-radius: 18px; }
     .dashboard-topbar { align-items: flex-start; flex-direction: column; padding: 15px; }
