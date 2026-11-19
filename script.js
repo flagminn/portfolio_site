@@ -261,6 +261,160 @@
     }
 
     const skills = {
+        virtualbox: {
+            category: "DO / 01-LINUX-ADMINISTRATION",
+            title: "VirtualBox & Ubuntu Server LTS",
+            description: "Развернул виртуальную машину с Ubuntu 20.04 Server LTS в VirtualBox, проверил версию ОС через cat /etc/issue.",
+            evidence: ["Реализовано в проекте: DO / 01-linux-administration", "Развернул виртуальную машину с Ubuntu 20.04 Server LTS в VirtualBox, проверил версию ОС через cat /etc/issue."],
+            github: "DO/01-linux-administration"
+        },
+        users_mgmt: {
+            category: "DO / 01-LINUX-ADMINISTRATION",
+            title: "Linux User & Group Management",
+            description: "Создал пользователя, добавил его в группу adm, настроил права sudo и проверил записи в /etc/passwd.",
+            evidence: ["Реализовано в проекте: DO / 01-linux-administration", "Создал пользователя, добавил его в группу adm, настроил права sudo и проверил записи в /etc/passwd."],
+            github: "DO/01-linux-administration"
+        },
+        hostname_tz: {
+            category: "DO / 01-LINUX-ADMINISTRATION",
+            title: "Hostname & Timezone Configuration",
+            description: "Установил системное имя хоста в формате user-1 и настроил актуальную временную зону ОС.",
+            evidence: ["Реализовано в проекте: DO / 01-linux-administration", "Установил системное имя хоста в формате user-1 и настроил актуальную временную зону ОС."],
+            github: "DO/01-linux-administration"
+        },
+        ntp: {
+            category: "DO / 01-LINUX-ADMINISTRATION",
+            title: "NTP & System Time Synchronization",
+            description: "Настроил службу автоматической синхронизации времени (NTP) для поддержания актуального системного времени.",
+            evidence: ["Реализовано в проекте: DO / 01-linux-administration", "Настроил службу автоматической синхронизации времени (NTP) для поддержания актуального системного времени."],
+            github: "DO/01-linux-administration"
+        },
+        editors: {
+            category: "DO / 01-LINUX-ADMINISTRATION",
+            title: "Console Text Editors (VIM, Nano, Mcedit)",
+            description: "Установил и освоил VIM, Nano и Mcedit, выполнил редактирование файлов, поиск и замену ключевых слов.",
+            evidence: ["Реализовано в проекте: DO / 01-linux-administration", "Установил и освоил VIM, Nano и Mcedit, выполнил редактирование файлов, поиск и замену ключевых слов."],
+            github: "DO/01-linux-administration"
+        },
+        ssh_hardening: {
+            category: "DO / 01-LINUX-ADMINISTRATION",
+            title: "SSH Daemon Hardening & Port Reassignment",
+            description: "Установил и настроил службу SSHd, изменил стандартный порт на 2022, добавил в автозагрузку и проверил процесс через ps.",
+            evidence: ["Реализовано в проекте: DO / 01-linux-administration", "Установил и настроил службу SSHd, изменил стандартный порт на 2022, добавил в автозагрузку и проверил процесс через ps."],
+            github: "DO/01-linux-administration"
+        },
+        top_htop: {
+            category: "DO / 01-LINUX-ADMINISTRATION",
+            title: "Resource Monitoring (top & htop)",
+            description: "Использовал top и htop для мониторинга uptime, активных процессов, сортировки по CPU/RAM/PID и фильтрации.",
+            evidence: ["Реализовано в проекте: DO / 01-linux-administration", "Использовал top и htop для мониторинга uptime, активных процессов, сортировки по CPU/RAM/PID и фильтрации."],
+            github: "DO/01-linux-administration"
+        },
+        disk_mgmt: {
+            category: "DO / 01-LINUX-ADMINISTRATION",
+            title: "Disk Management (fdisk & df)",
+            description: "Исследовал структуру дисков через fdisk -l, проанализировал использование разделов и типов файловых систем через df -Th.",
+            evidence: ["Реализовано в проекте: DO / 01-linux-administration", "Исследовал структуру дисков через fdisk -l, проанализировал использование разделов и типов файловых систем через df -Th."],
+            github: "DO/01-linux-administration"
+        },
+        du_ncdu: {
+            category: "DO / 01-LINUX-ADMINISTRATION",
+            title: "Directory Sizing (du & ncdu)",
+            description: "Измерил размер директорий /home, /var, /var/log с помощью утилит du и интерактивного анализатора ncdu.",
+            evidence: ["Реализовано в проекте: DO / 01-linux-administration", "Измерил размер директорий /home, /var, /var/log с помощью утилит du и интерактивного анализатора ncdu."],
+            github: "DO/01-linux-administration"
+        },
+        sys_logs: {
+            category: "DO / 01-LINUX-ADMINISTRATION",
+            title: "System Logs Analysis",
+            description: "Исследовал системные журналы /var/log/dmesg, /var/log/syslog и /var/log/auth.log для аудита авторизации и служб.",
+            evidence: ["Реализовано в проекте: DO / 01-linux-administration", "Исследовал системные журналы /var/log/dmesg, /var/log/syslog и /var/log/auth.log для аудита авторизации и служб."],
+            github: "DO/01-linux-administration"
+        },
+        cron: {
+            category: "DO / 01-LINUX-ADMINISTRATION",
+            title: "Task Scheduling (CRON)",
+            description: "Настроил периодический запуск команды uptime через планировщик задач CRON с интервалом в 2 минуты и проверил логи.",
+            evidence: ["Реализовано в проекте: DO / 01-linux-administration", "Настроил периодический запуск команды uptime через планировщик задач CRON с интервалом в 2 минуты и проверил логи."],
+            github: "DO/01-linux-administration"
+        },
+        ssh_tunnel: {
+            category: "DO / 02-LINUX-NETWORKS",
+            title: "SSH Tunneling (Port Forwarding)",
+            description: "Изучил и применил механизмы Local и Remote Port Forwarding для безопасного проброса портов через SSH-туннели.",
+            evidence: ["Реализовано в проекте: DO / 02-linux-networks", "Изучил и применил механизмы Local и Remote Port Forwarding для безопасного проброса портов через SSH-туннели."],
+            github: "DO/02-linux-networks"
+        },
+        ansicolor: {
+            category: "DO / 03-LINUX-MONITORING-V1",
+            title: "ANSI Color Formatting & Configs",
+            description: "Реализовал кастомизацию цветового оформления вывода метрик через ANSI escape-последовательности и внешний конфиг.",
+            evidence: ["Реализовано в проекте: DO / 03-linux-monitoring-v1", "Реализовал кастомизацию цветового оформления вывода метрик через ANSI escape-последовательности и внешний конфиг."],
+            github: "DO/03-linux-monitoring-v1"
+        },
+        fs_analysis: {
+            category: "DO / 03-LINUX-MONITORING-V1",
+            title: "Filesystem Analysis & Top Dirs",
+            description: "Написал скрипт подсчета папок, файлов по типам, поиска топ-5 папок и топ-10 файлов по размеру с замером времени выполнения.",
+            evidence: ["Реализовано в проекте: DO / 03-linux-monitoring-v1", "Написал скрипт подсчета папок, файлов по типам, поиска топ-5 папок и топ-10 файлов по размеру с замером времени выполнения."],
+            github: "DO/03-linux-monitoring-v1"
+        },
+        file_gen: {
+            category: "DO / 04-LINUX-MONITORING-V2",
+            title: "Automated File Generator Script",
+            description: "Создал Bash-скрипт для генерации файлов заданного размера, имени и суффикса с контролем заполнения диска (df).",
+            evidence: ["Реализовано в проекте: DO / 04-linux-monitoring-v2", "Создал Bash-скрипт для генерации файлов заданного размера, имени и суффикса с контролем заполнения диска (df)."],
+            github: "DO/04-linux-monitoring-v2"
+        },
+        fs_cleanup: {
+            category: "DO / 04-LINUX-MONITORING-V2",
+            title: "Filesystem Cleanup Automation",
+            description: "Разработал скрипт очистки сгенерированных файлов по дате создания, маске и логам генерации.",
+            evidence: ["Реализовано в проекте: DO / 04-linux-monitoring-v2", "Разработал скрипт очистки сгенерированных файлов по дате создания, маске и логам генерации."],
+            github: "DO/04-linux-monitoring-v2"
+        },
+        web_log_gen: {
+            category: "DO / 04-LINUX-MONITORING-V2",
+            title: "Web Server Log Generator",
+            description: "Написал генератор логов веб-сервера со случайными IP, статусами ответа (200, 401, 403, 404, 500 и др.) и User-Agent.",
+            evidence: ["Реализовано в проекте: DO / 04-linux-monitoring-v2", "Написал генератор логов веб-сервера со случайными IP, статусами ответа (200, 401, 403, 404, 500 и др.) и User-Agent."],
+            github: "DO/04-linux-monitoring-v2"
+        },
+        goaccess: {
+            category: "DO / 04-LINUX-MONITORING-V2",
+            title: "Web Analytics (GoAccess)",
+            description: "Установил и настроил анализатор логов GoAccess для интерактивного анализа трафика и генерации HTML-отчетов.",
+            evidence: ["Реализовано в проекте: DO / 04-linux-monitoring-v2", "Установил и настроил анализатор логов GoAccess для интерактивного анализа трафика и генерации HTML-отчетов."],
+            github: "DO/04-linux-monitoring-v2"
+        },
+        stress: {
+            category: "DO / 04-LINUX-MONITORING-V2",
+            title: "System Stress Testing (stress)",
+            description: "Провел нагрузочное тестирование ОС с помощью утилиты stress (CPU, RAM, диск) с отслеживанием графиков в Grafana.",
+            evidence: ["Реализовано в проекте: DO / 04-linux-monitoring-v2", "Провел нагрузочное тестирование ОС с помощью утилиты stress (CPU, RAM, диск) с отслеживанием графиков в Grafana."],
+            github: "DO/04-linux-monitoring-v2"
+        },
+        custom_exporter: {
+            category: "DO / 04-LINUX-MONITORING-V2",
+            title: "Custom Prometheus Exporter",
+            description: "Разработал легковесный кастомный скрипт-экспортер метрик для интеграции с Prometheus.",
+            evidence: ["Реализовано в проекте: DO / 04-linux-monitoring-v2", "Разработал легковесный кастомный скрипт-экспортер метрик для интеграции с Prometheus."],
+            github: "DO/04-linux-monitoring-v2"
+        },
+        swarm: {
+            category: "DO / 07-DOCKER-COMPOSE",
+            title: "Docker Swarm Clustering",
+            description: "Объединил виртуальные машины в кластер Docker Swarm (Manager/Worker) для оркестрации и репликации сервисов.",
+            evidence: ["Реализовано в проекте: DO / 07-docker-compose", "Объединил виртуальные машины в кластер Docker Swarm (Manager/Worker) для оркестрации и репликации сервисов."],
+            github: "DO/07-docker-compose"
+        },
+        cadvisor: {
+            category: "DO / 08-MONITORING-ALERTING",
+            title: "cAdvisor & Loki Log Aggregation",
+            description: "Настроил сбор контейнерных метрик через cAdvisor и агрегацию логов с помощью Grafana Loki.",
+            evidence: ["Реализовано в проекте: DO / 08-monitoring-alerting", "Настроил сбор контейнерных метрик через cAdvisor и агрегацию логов с помощью Grafana Loki."],
+            github: "DO/08-monitoring-alerting"
+        },
         linux: {
             category: "DO / 01-LINUX-ADMINISTRATION",
             title: "Linux System Administration",
@@ -663,35 +817,42 @@
 
     const quizQuestions = [
         {
-            question: "Нужно внедрить незнакомый сервис. Ваш первый шаг?",
+            question: "Какой профиль задач сейчас в приоритете?",
             options: [
-                { text: "Изучить документацию, зависимости и план отката", score: 2, insight: "Начинаем с документации, ограничений и понятного плана отката." },
-                { text: "Поднять тестовый стенд и разбираться экспериментально", score: 1, insight: "Эксперименты проводим на тестовом стенде, а не на пользователях." },
-                { text: "Сразу ставить на production — там быстрее всё проверится", score: 0, insight: "Перед production-изменениями стоит договориться о тестировании и откате." }
+                { text: "Полноценное системное администрирование (Linux/Windows): серверы, сети, резервное копирование, безопасность и стабильность инфраструктуры.", score: 35, insight: "Профиль задач полностью совпадает с моим опытом и навыками." },
+                { text: "Инфраструктурные задачи с уклоном в DevOps: контейнеры (Docker), мониторинг (Prometheus/Grafana), CI/CD-пайплайны и работа с БД.", score: 35, insight: "Инфраструктура с уклоном в DevOps и контейнеризацию — именно то, с чем я работаю." },
+                { text: "Администрирование серверов и сетей (80% времени) + редкие сложные эскалации (20% времени).", score: 25, insight: "Отличный баланс ежедневных задач по администрированию и поддержке." },
+                { text: "Первая линия хелпдеска: прием звонков, замена картриджей и бесконечная настройка принтеров.", score: 0, insight: "Я перерос задачи первой линии и ищу роль системного администратора." },
+                { text: "Senior DevOps / Архитектор под высоконагруженные Kubernetes-кластеры в продакшне.", score: 5, insight: "У меня Junior+ уровень в DevOps и сильная база по Linux и сетям, а не многолетний production Kubernetes." },
+                { text: "Пропустить вопрос (не учитывается в расчете итогового процента)", score: 0, neutral: true, insight: "Вопрос пропущен." }
             ]
         },
         {
-            question: "Что обязательно должно быть у хорошего деплоя?",
+            question: "В каком состоянии находится инфраструктура и процессы?",
             options: [
-                { text: "Тесты, наблюдаемость и возможность быстро откатиться", score: 2, insight: "Сходимся в важности тестов, наблюдаемости и управляемого релиза." },
-                { text: "Понятное окно релиза и ответственный на связи", score: 1, insight: "Окно релиза и ответственный важны — их можно усилить проверками и откатом." },
-                { text: "Главное — чтобы релиз прошел вовремя, остальное потом", score: 0, insight: "Сроки важны, но я не жертвую восстанавливаемостью ради скорости." }
+                { text: "Нужно навести порядок с нуля: провести аудит, настроить бэкапы, документацию и учет активов (CMDB).", score: 25, insight: "Люблю наводить порядок, структурировать активы и писать документацию с нуля." },
+                { text: "Инфраструктура работает, но много ручных операций — нужно писать скрипты (Bash/Python) и внедрять мониторинг.", score: 25, insight: "Готов автоматизировать рутину с помощью Bash/Python и настраивать мониторинг." },
+                { text: "Крупный энтерпрайз с жесткими регламентами и узкой зоной ответственности на одном сервисе.", score: 15, insight: "Готов работать по регламентам и углубляться в специфику сервисов." },
+                { text: "Пропустить вопрос (не учитывается в расчете итогового процента)", score: 0, neutral: true, insight: "Вопрос пропущен." }
             ]
         },
         {
-            question: "Ночью пришел критический алерт. Ваш приоритет?",
+            question: "Какой основной стек технологий используется в вашей инфраструктуре?",
             options: [
-                { text: "Оценить влияние, локализовать причину, восстановить сервис", score: 2, insight: "При инциденте сначала влияние и локализация, затем восстановление и разбор причины." },
-                { text: "Перезагрузить сервис, а логи посмотреть утром", score: 1, insight: "Перезагрузка может помочь, но важно сохранить данные для последующей диагностики." },
-                { text: "Подождать: если алерт важный, кто-нибудь еще сообщит", score: 0, insight: "Критический алерт требует владения инцидентом, а не ожидания дублирующего сигнала." }
+                { text: "Смешанная среда (Linux-серверы + Windows Server / Active Directory) и локальные сети (LAN/VPN).", score: 20, insight: "Смешанная среда Linux + Windows Server и локальные сети — моя основная зона практики." },
+                { text: "Преимущественно Linux (Ubuntu/Debian), контейнеризация (Docker), PostgreSQL и веб-сервисы.", score: 20, insight: "Стек Linux, Docker, PostgreSQL и веб-сервисы полностью соответствует моим проектам." },
+                { text: "Инфраструктура с упором на сети, безопасность (межсетевые экраны, маршрутизация) и системы мониторинга.", score: 20, insight: "Сетевые технологии, безопасность и мониторинг — сильная сторона моих навыков." },
+                { text: "Узкоспециализированные проприетарные системы, редкие ОС или чистое «железо» ЦОД без Linux/Windows.", score: 5, insight: "Специализированные редкие ОС потребуют дополнительного времени на погружение." },
+                { text: "Пропустить вопрос (не учитывается в расчете итогового процента)", score: 0, neutral: true, insight: "Вопрос пропущен." }
             ]
         },
         {
-            question: "Одна и та же ручная операция повторяется каждую неделю. Что делаем?",
+            question: "Какой подход к работе и инструментам ценится в вашей команде?",
             options: [
-                { text: "Пишем скрипт, добавляем проверку результата и документацию", score: 2, insight: "Повторяемую рутину автоматизируем с проверкой результата и документацией." },
-                { text: "Сначала считаем трудозатраты, автоматизируем при выгоде", score: 1, insight: "Оценка трудозатрат полезна: автоматизация должна окупать сложность поддержки." },
-                { text: "Оставляем вручную: так меньше шансов что-то сломать", score: 0, insight: "Ручные операции тоже несут риск ошибок — стоит сравнить его со стоимостью автоматизации." }
+                { text: "Самостоятельность (умение изучить документацию и протестировать решение на стенде) + разумное использование AI для ускорения скриптов.", score: 20, insight: "Привык работать самостоятельно, проверять решения на стенде и использовать AI как инструмент черновика." },
+                { text: "Готовность работать по строгому ревью кода/конфигов и развиваться в сильной инженерной команде.", score: 20, insight: "Ценю код-ревью и командные стандарты разработки и инфраструктуры." },
+                { text: "Нужен руководитель большого ИТ-департамента на 30+ человек без работы руками.", score: 5, insight: "Я инженер, который решает задачи руками и головой, а не управленец крупного департамента." },
+                { text: "Пропустить вопрос (не учитывается в расчете итогового процента)", score: 0, neutral: true, insight: "Вопрос пропущен." }
             ]
         }
     ];
@@ -741,25 +902,36 @@
         }
 
         function showResult() {
-            const selected = answers.map((answer, index) => quizQuestions[index].options[answer]);
-            const score = selected.reduce((total, option) => total + option.score, 0);
-            const maxScore = quizQuestions.length * 2;
-            const percent = Math.round((score / maxScore) * 100);
+            const selected = answers.map((answer, index) => answer !== undefined ? quizQuestions[index].options[answer] : null).filter(Boolean);
+            const activeQuestions = selected.filter((option) => !option.neutral);
+            const score = activeQuestions.reduce((total, option) => total + option.score, 0);
+            const maxScore = activeQuestions.length > 0 ? activeQuestions.length * 35 : 1;
+            const percent = activeQuestions.length === 0 ? 0 : Math.round((score / maxScore) * 100);
             game.hidden = true;
             result.hidden = false;
-            qs("#quizScore").textContent = `${percent}%`;
-            const title = percent >= 75 ? "Наши рабочие принципы хорошо совпадают" : percent >= 45 ? "Есть общая база — стоит обсудить процессы" : "У нас разные привычки — это повод для разговора";
-            const text = percent >= 75 ? "С высокой вероятностью нам будет проще договориться о подходе к изменениям, инцидентам и автоматизации." : percent >= 45 ? "Часть подходов совпадает. На интервью полезно сверить ожидания по релизам, инцидентам и зоне ответственности." : "Это не приговор совместной работе: важно заранее обсудить регламенты, допустимые риски и ожидания от инженера.";
-            qs("#quizResultTitle").textContent = title;
-            qs("#quizResultText").textContent = text;
-            const strongest = selected.filter((option) => option.score === 2).map((option) => option.insight);
+            if (activeQuestions.length === 0) {
+                qs("#quizScore").textContent = "—";
+                qs("#quizResultTitle").textContent = "Вы пропустили все вопросы";
+                qs("#quizResultText").textContent = "Вы пропустили все вопросы — но я всё равно готов пообщаться и рассказать о своем опыте лично.";
+            } else {
+                qs("#quizScore").textContent = `${percent}%`;
+                const title = percent >= 80 ? "Отличное совпадение" : percent >= 55 ? "Хороший потенциал" : "Честный фильтр";
+                const text = percent >= 80 
+                    ? "Мы точно на одной волне. Мои навыки в администрировании Linux/Windows, настройке сетей, бэкапов и автоматизации на Bash/Python закрывают ваши задачи с первого дня. Давайте созвонимся и обсудим инфраструктуру?"
+                    : percent >= 55 
+                    ? "Я закрою большинство ваших задач по серверам, сетям и мониторингу, а в узких местах быстро разберусь по официальной документации. Готов обсудить детали на техническом интервью."
+                    : "Похоже, сейчас у вас запрос либо на первую линию хелпдеска, либо на Senior-архитектора. Я сфокусирован именно на системном администрировании и развитии в DevOps, поэтому сэкономлю ваше время, но буду рад остаться на связи.";
+                qs("#quizResultTitle").textContent = title;
+                qs("#quizResultText").textContent = text;
+            }
+            const strongest = selected.filter((option) => !option.neutral).map((option) => option.insight);
             const insights = strongest.length ? strongest : ["На интервью предлагаю разобрать реальную инфраструктурную задачу и сверить ожидания."];
             qs("#quizArguments").replaceChildren(...insights.map((insight) => {
                 const li = document.createElement("li");
                 li.textContent = insight;
                 return li;
             }));
-            const message = `Азат, здравствуйте! Прошел квиз на вашем сайте: совпадение по рабочим принципам ${percent}%. Хотел бы обсудить вакансию и наши процессы.`;
+            const message = `Азат, здравствуйте! Прошел TEAM FIT CHECK на вашем сайте (совпадение: ${activeQuestions.length === 0 ? 'пропущено' : percent + '%'}). Хотел бы обсудить вакансию и наши процессы.`;
             qs("#quizContact").href = `https://t.me/flagminn?text=${encodeURIComponent(message)}`;
             qs("#quizRestart")?.focus();
         }
